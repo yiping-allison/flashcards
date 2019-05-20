@@ -1,9 +1,7 @@
 'use strict';
 
-var lango = React.createElement(
-	"h1",
-	{ id: "logo" },
-	"Lango!"
-);
-
-
+ReactDOM.render(React.createElement(
+	'h1',
+	null,
+	'Hello World!'
+), document.getElementById('root'));
