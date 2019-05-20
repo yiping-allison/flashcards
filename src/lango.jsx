@@ -16,7 +16,7 @@ function Txt(props) {
 class CreateCardMain extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { opinion: "Life is a bowl of cherries" }
+		this.state = { korean: "Life is a bowl of cherries" }
 		this.checkReturn = this.checkReturn.bind(this);
 	}
 
@@ -26,7 +26,7 @@ class CreateCardMain extends React.Component {
 			<textarea id="inputEng" onKeyPress={this.checkReturn} />
 		</Card>
 		<Card>
-			<Txt phrase={this.state.opinion} />
+			<Txt phrase={this.state.korean} />
 		</Card>
 		</main>
 		);
@@ -35,7 +35,9 @@ class CreateCardMain extends React.Component {
 	checkReturn(event) {
 		if (event.charCode == 13) {
 			let newPhrase = document.getElementById("inputEng").value;
-			this.setState({opinion: newPhrase});
+			// TODO: insert english phrase to Translate API
+			// TODO: replace setState with translation from API
+			this.setState({korean: newPhrase});
 			}
 		}
 } // end class
