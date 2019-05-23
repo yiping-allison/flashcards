@@ -144,7 +144,7 @@ var CreateCardMain = function (_React$Component) {
 							"div",
 							{ id: "translateBox", placeholder: "Translation" },
 							React.createElement("textarea", { id: "translationBox", placeholder: "Translation", value: this.state.korean }),
-							"//",
+							
 							React.createElement(Txt, { phrase: this.state.korean })
 						)
 					)

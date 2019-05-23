@@ -1,11 +1,65 @@
-body {
-	background-color: pink;
+
+/* COMPUTER STYLING*/
+@media screen and (min-width: 1100px) {
+
+.headerDiv{
+	text-align: center;
+	font-family: Raleway Black;
+	font-size: 70pt;
+	color: #606B9B;
 }
 
-#inputBox {
-	background-color: purple;
+.footer{
+	text-align: center;
+	font-size: 25pt;
+	color: white;
+	background-color: #606B9B;
+	font-family: Helvetica;
+	position:absolute;
+	bottom:0;
+	width:100%;
+
 }
 
-#translateBox {
-	background-color: orange;
+#saveBttn {
+	font-family: Helvetica;
+	font-size: 25pt;
+	align-items: right;
+	color: white;
+	background-color: #70C7A9;
+	border-radius: 25px;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	float: right;
+
+}
+
+#inputEng{
+	font-family: Helvetica;
+	font-size: 30pt;
+
+}
+
+#startReview{
+	font-family: Helvetica;
+	font-size: 25pt;
+	color: white;
+	background-color: #606B9B;
+	border-radius: 25px;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	float: left;
+	position:absolute;
+    top:10px;
+    left:20px;
+    padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
 }
