@@ -1,18 +1,35 @@
 
 /* COMPUTER STYLING*/
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1000px) {
 
 .headerDiv{
 	text-align: center;
+	justify-content: center;
 	font-family: Raleway Black;
-	font-size: 70pt;
+	font-size: 5em;
 	color: #606B9B;
-	padding-bottom: 150px;
+	padding-bottom: 10%;
+	display: flex;
+	margin-right: 30%;
+	margin-left: 30%;
+}
+
+#title {
+	order: 2;
+}
+
+button#startReview {
+	order: 1;
+	font-size: .5em;
+	border-radius: 25px;
+	font-family: Helvetica;
+	color: white;
+	background-color: #606B9B;
 }
 
 .footer{
 	text-align: center;
-	font-size: 25pt;
+	font-size: 2em;
 	color: white;
 	background-color: #606B9B;
 	font-family: Helvetica;
@@ -24,7 +41,7 @@
 
 #saveBttn {
 	font-family: Helvetica;
-	font-size: 25pt;
+	font-size: 2em;
 	align-items: right;
 	color: white;
 	background-color: #70C7A9;
@@ -55,7 +72,7 @@ textarea::placeholder {
 
 #inputEng{
 	font-family: Helvetica;
-	font-size: 30pt;
+	font-size: 2em;
 	float: left;
 	display: flex;
 }
@@ -64,30 +81,11 @@ textarea::placeholder {
 	margin-left: 10%;
 }
 
-#startReview{
-	font-family: Helvetica;
-	font-size: 25pt;
-	color: white;
-	background-color: #606B9B;
-	border-radius: 25px;
-	padding-right: 40px; 
-	padding-left: 40px; 
-	padding-top: 10px;
-	padding-bottom: 10px;
-	float: left;
-	position:absolute;
-    top:30px;
-    left:30px;
-    padding-right: 40px; 
-	padding-left: 40px; 
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
 
 #translationBox {
 	font-family: Helvetica;
 	display: flex;
-	font-size: 30pt;
+	font-size: 2em;
 	float: right;
 
 }
@@ -121,19 +119,19 @@ textarea::placeholder {
 
 
 /* Start tablet division */
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 800px) {
 
 .headerDiv{
 	text-align: center;
 	font-family: Raleway Black;
-	font-size: 30pt;
+	font-size: 2em;
 	color: #606B9B;
 	padding-bottom: 150px;
 }
 
 .footer{
 	text-align: center;
-	font-size: 25pt;
+	font-size: 2em;
 	color: white;
 	background-color: #606B9B;
 	font-family: Helvetica;
@@ -145,7 +143,7 @@ textarea::placeholder {
 
 #saveBttn {
 	font-family: Helvetica;
-	font-size: 25pt;
+	font-size: 2em;
 	align-items: right;
 	color: white;
 	background-color: #70C7A9;
@@ -176,7 +174,7 @@ textarea::placeholder {
 
 #inputEng{
 	font-family: Helvetica;
-	font-size: 30pt;
+	font-size: 2em;
 	float: left;
 	display: flex;
 }
@@ -187,7 +185,7 @@ textarea::placeholder {
 
 #startReview{
 	font-family: Helvetica;
-	font-size: 5pt;
+	font-size: 2em;
 	color: white;
 	background-color: #606B9B;
 	border-radius: 25px;
@@ -208,7 +206,7 @@ textarea::placeholder {
 #translationBox {
 	font-family: Helvetica;
 	display: flex;
-	font-size: 30pt;
+	font-size: 2em;
 	float: right;
 
 }
@@ -248,19 +246,19 @@ textarea::placeholder {
 
 
 /*Mobile View*/
-@media screen and (min-width: 0px) {
+@media screen and (max-width: 0px) {
 
 .headerDiv{
 	text-align: center;
 	font-family: Raleway Black;
-	font-size: 70pt;
+	font-size: 2em;
 	color: #606B9B;
 	padding-bottom: 150px;
 }
 
 .footer{
 	text-align: center;
-	font-size: 25pt;
+	font-size: 2em;
 	color: white;
 	background-color: #606B9B;
 	font-family: Helvetica;
@@ -272,7 +270,7 @@ textarea::placeholder {
 
 #saveBttn {
 	font-family: Helvetica;
-	font-size: 25pt;
+	font-size: 2em;
 	align-items: right;
 	color: white;
 	background-color: #70C7A9;
@@ -303,7 +301,7 @@ textarea::placeholder {
 
 #inputEng{
 	font-family: Helvetica;
-	font-size: 30pt;
+	font-size: 2em;
 	float: left;
 	display: flex;
 }
@@ -314,7 +312,7 @@ textarea::placeholder {
 
 #startReview{
 	font-family: Helvetica;
-	font-size: 25pt;
+	font-size: 2em;
 	color: white;
 	background-color: #606B9B;
 	border-radius: 25px;
@@ -335,7 +333,7 @@ textarea::placeholder {
 #translationBox {
 	font-family: Helvetica;
 	display: flex;
-	font-size: 30pt;
+	font-size: 2em;
 	float: right;
 
 }
