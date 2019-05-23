@@ -117,12 +117,12 @@ var CreateCardMain = function (_React$Component) {
 					React.createElement(
 						"p",
 						{ id: "title" },
-						" Lango "
+						" Lango! "
 					),
 					React.createElement(
 						"button",
 						{ id: "startReview" },
-						" Review "
+						" Start Review "
 					)
 				),
 				React.createElement(
@@ -131,12 +131,22 @@ var CreateCardMain = function (_React$Component) {
 					React.createElement(
 						Card,
 						null,
-						React.createElement("textarea", { id: "inputEng", onKeyPress: this.checkReturn })
+						React.createElement(
+							"div",
+							{ id: "inputBox" },
+							React.createElement("textarea", { id: "inputEng", placeholder: "English", onKeyPress: this.checkReturn })
+						)
 					),
 					React.createElement(
 						Card,
 						null,
-						React.createElement(Txt, { phrase: this.state.korean })
+						React.createElement(
+							"div",
+							{ id: "translateBox", placeholder: "Translation" },
+							React.createElement("textarea", { id: "translationBox", placeholder: "Translation", value: this.state.korean }),
+							"//",
+							React.createElement(Txt, { phrase: this.state.korean })
+						)
 					)
 				),
 				React.createElement(
