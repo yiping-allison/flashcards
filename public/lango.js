@@ -39,7 +39,10 @@ var CreateCardMain = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (CreateCardMain.__proto__ || Object.getPrototypeOf(CreateCardMain)).call(this, props));
 
-		_this.state = { opinion: "Life is a bowl of cherries" };
+		_this.state = {
+			korean: "",
+			error: null
+		};
 		_this.checkReturn = _this.checkReturn.bind(_this);
 		return _this;
 	}
@@ -47,6 +50,18 @@ var CreateCardMain = function (_React$Component) {
 	_createClass(CreateCardMain, [{
 		key: "render",
 		value: function render() {
+			var _state = this.state,
+			    word = _state.word,
+			    error = _state.error;
+
+			if (error) {
+				return React.createElement(
+					"div",
+					null,
+					" Error: ",
+					error.message
+				);
+			}
 			return React.createElement(
 				"main",
 				null,
@@ -58,7 +73,7 @@ var CreateCardMain = function (_React$Component) {
 				React.createElement(
 					Card,
 					null,
-					React.createElement(Txt, { phrase: this.state.opinion })
+					React.createElement(Txt, { phrase: this.state.korean })
 				)
 			);
 		} // end of render function
@@ -66,9 +81,22 @@ var CreateCardMain = function (_React$Component) {
 	}, {
 		key: "checkReturn",
 		value: function checkReturn(event) {
+			var _this2 = this;
+
 			if (event.charCode == 13) {
 				var newPhrase = document.getElementById("inputEng").value;
-				this.setState({ opinion: newPhrase });
+				var url = "translate?english=" + newPhrase;
+				fetch(url).then(function (res) {
+					return res.json();
+				}).then(function (result) {
+					_this2.setState({
+						korean: result.Korean
+					});
+				}, function (error) {
+					_this2.setState({
+						error: error
+					});
+				});
 			}
 		}
 	}]);
