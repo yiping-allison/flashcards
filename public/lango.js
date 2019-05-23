@@ -14,7 +14,7 @@ function Card(props) {
 		{ className: "textCard" },
 		props.children
 	);
-}
+} // creates Card class item
 
 function Txt(props) {
 	if (props.phrase == undefined) {
@@ -29,7 +29,15 @@ function Txt(props) {
 		" ",
 		props.phrase
 	);
-}
+} // creates text class item
+
+function Save(props) {
+	return React.createElement(
+		"div",
+		{ className: "saveCard" },
+		props.children
+	);
+} // creates a save class item
 
 var CreateCardMain = function (_React$Component) {
 	_inherits(CreateCardMain, _React$Component);
@@ -44,6 +52,7 @@ var CreateCardMain = function (_React$Component) {
 			error: null
 		};
 		_this.checkReturn = _this.checkReturn.bind(_this);
+		_this.saveCard = _this.saveCard.bind(_this);
 		return _this;
 	}
 
@@ -74,6 +83,15 @@ var CreateCardMain = function (_React$Component) {
 					Card,
 					null,
 					React.createElement(Txt, { phrase: this.state.korean })
+				),
+				React.createElement(
+					Save,
+					null,
+					React.createElement(
+						"button",
+						{ id: "saveBttn", onClick: this.saveCard },
+						"Save"
+					)
 				)
 			);
 		} // end of render function
@@ -98,6 +116,20 @@ var CreateCardMain = function (_React$Component) {
 					});
 				});
 			}
+		}
+	}, {
+		key: "saveCard",
+		value: function saveCard() {
+			var _this3 = this;
+
+			var translatedWord = this.state.korean;
+			var eng = document.getElementById("inputEng").value;
+			var url = "store?english=" + eng + "&korean=" + translatedWord;
+			fetch(url).then(function (error) {
+				_this3.setState({
+					error: error
+				});
+			});
 		}
 	}]);
 
