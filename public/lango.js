@@ -39,6 +39,30 @@ function Save(props) {
 	);
 } // creates a save class item
 
+function Header(props) {
+	return React.createElement(
+		"div",
+		{ className: "headerDiv" },
+		props.children
+	);
+}
+
+function CardMain(props) {
+	return React.createElement(
+		"div",
+		{ className: "cardMainDiv" },
+		props.children
+	);
+}
+
+function Footer(props) {
+	return React.createElement(
+		"div",
+		{ className: "footer" },
+		props.children
+	);
+}
+
 var CreateCardMain = function (_React$Component) {
 	_inherits(CreateCardMain, _React$Component);
 
@@ -75,14 +99,32 @@ var CreateCardMain = function (_React$Component) {
 				"main",
 				null,
 				React.createElement(
-					Card,
+					Header,
 					null,
-					React.createElement("textarea", { id: "inputEng", onKeyPress: this.checkReturn })
+					React.createElement(
+						"p",
+						{ id: "title" },
+						" Lango "
+					),
+					React.createElement(
+						"button",
+						{ id: "startReview" },
+						" Review "
+					)
 				),
 				React.createElement(
-					Card,
+					CardMain,
 					null,
-					React.createElement(Txt, { phrase: this.state.korean })
+					React.createElement(
+						Card,
+						null,
+						React.createElement("textarea", { id: "inputEng", onKeyPress: this.checkReturn })
+					),
+					React.createElement(
+						Card,
+						null,
+						React.createElement(Txt, { phrase: this.state.korean })
+					)
 				),
 				React.createElement(
 					Save,
@@ -92,6 +134,11 @@ var CreateCardMain = function (_React$Component) {
 						{ id: "saveBttn", onClick: this.saveCard },
 						"Save"
 					)
+				),
+				React.createElement(
+					Footer,
+					null,
+					React.createElement(Txt, { phrase: "UserName" })
 				)
 			);
 		} // end of render function

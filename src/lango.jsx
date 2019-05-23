@@ -19,6 +19,24 @@ function Save(props) {
 		</div>; 
 }  // creates a save class item
 
+function Header(props) {
+	return <div className = "headerDiv">
+		{ props.children }
+		</div>;
+}
+
+function CardMain(props) {
+	return <div className = "cardMainDiv">
+		{ props.children }
+		</div>;
+}
+
+function Footer(props) {
+	return <div className = "footer">
+		{ props.children }
+		</div>;
+}
+
 class CreateCardMain extends React.Component {
 	constructor(props) {
 		super(props);
@@ -37,15 +55,22 @@ class CreateCardMain extends React.Component {
 		} 
 		return (
 		<main>
-		<Card>
-			<textarea id="inputEng" onKeyPress={this.checkReturn} />
-		</Card>
-		<Card>
-			<Txt phrase={this.state.korean} />
-		</Card>
+		<Header>
+			<p id="title"> Lango </p>
+			<button id="startReview"> Review </button>
+		</Header>
+		<CardMain>
+			<Card>
+				<textarea id="inputEng" onKeyPress={this.checkReturn} />
+			</Card>
+			<Card>
+				<Txt phrase={this.state.korean} />
+			</Card>
+		</CardMain>
 		<Save>
 			<button id="saveBttn" onClick={this.saveCard}>Save</button>
 		</Save>
+		<Footer><Txt phrase={ "UserName" } /></Footer>
 		</main>
 		);
 	} // end of render function
