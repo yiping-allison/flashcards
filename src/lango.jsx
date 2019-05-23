@@ -16,11 +16,19 @@ function Txt(props) {
 class CreateCardMain extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { korean: "Life is a bowl of cherries" }
+		this.state = { 
+			korean: "",
+			error: null
+		}
 		this.checkReturn = this.checkReturn.bind(this);
 	}
 
-	render() { return (
+	render() {
+		const { word, error } = this.state;
+		if (error) {
+			return <div> Error: {error.message}</div>;
+		} 
+		return (
 		<main>
 		<Card>
 			<textarea id="inputEng" onKeyPress={this.checkReturn} />
@@ -35,11 +43,24 @@ class CreateCardMain extends React.Component {
 	checkReturn(event) {
 		if (event.charCode == 13) {
 			let newPhrase = document.getElementById("inputEng").value;
+			let url = "translate?english=" + newPhrase;
 			// TODO: insert english phrase to Translate API
-			// TODO: replace setState with translation from API
-			this.setState({korean: newPhrase});
-			}
+			fetch(url)
+				.then(res => res.json())
+				.then(
+					(result) => {
+						this.setState( {
+							korean: result.Korean
+						});
+					},
+					(error) => {
+						this.setState( {
+							error
+						});
+					}
+				)
 		}
+	}
 } // end class
 
 ReactDOM.render(
