@@ -55,6 +55,13 @@ class CreateCardMain extends React.Component {
 		} 
 		return (
 		<main>
+		<head>
+			<link rel="stylesheet" type="text/css" href="reset.css" />
+			<link rel="stylesheet" type="text/css" href="lango.css" />
+			<meta charset="UTF-8" />
+			<meta name="viewport" content="width=device-width" />
+			<title>Lango</title>
+		</head>
 		<Header>
 			<p id="title"> Lango </p>
 			<button id="startReview"> Review </button>

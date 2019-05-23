@@ -99,6 +99,19 @@ var CreateCardMain = function (_React$Component) {
 				"main",
 				null,
 				React.createElement(
+					"head",
+					null,
+					React.createElement("link", { rel: "stylesheet", type: "text/css", href: "reset.css" }),
+					React.createElement("link", { rel: "stylesheet", type: "text/css", href: "lango.css" }),
+					React.createElement("meta", { charset: "UTF-8" }),
+					React.createElement("meta", { name: "viewport", content: "width=device-width" }),
+					React.createElement(
+						"title",
+						null,
+						"Lango"
+					)
+				),
+				React.createElement(
 					Header,
 					null,
 					React.createElement(
