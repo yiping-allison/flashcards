@@ -63,15 +63,20 @@ class CreateCardMain extends React.Component {
 			<title>Lango</title>
 		</head>
 		<Header>
-			<p id="title"> Lango </p>
-			<button id="startReview"> Review </button>
+			<p id="title"> Lango! </p>
+			<button id="startReview"> Start Review </button>
 		</Header>
 		<CardMain>
 			<Card>
-				<textarea id="inputEng" onKeyPress={this.checkReturn} />
+				<div id="inputBox">
+					<textarea id="inputEng" placeholder="English"  onKeyPress={this.checkReturn} />
+				</div>
 			</Card>
 			<Card>
-				<Txt phrase={this.state.korean} />
+				<div id="translateBox" placeholder="Translation">
+					<textarea id="translationBox" placeholder="Translation" value={this.state.korean} />
+					//<Txt phrase={this.state.korean} />
+				</div>
 			</Card>
 		</CardMain>
 		<Save>
