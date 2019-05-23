@@ -55,33 +55,28 @@ class CreateCardMain extends React.Component {
 		} 
 		return (
 		<main>
-		<head>
-			<link rel="stylesheet" type="text/css" href="reset.css" />
-			<link rel="stylesheet" type="text/css" href="lango.css" />
-			<meta charset="UTF-8" />
-			<meta name="viewport" content="width=device-width" />
-			<title>Lango</title>
-		</head>
-		<Header>
-			<p id="title"> Lango! </p>
-			<button id="startReview"> Start Review </button>
-		</Header>
-		<CardMain>
-			<Card>
-				<div id="inputBox">
-					<textarea id="inputEng" placeholder="English"  onKeyPress={this.checkReturn} />
-				</div>
-			</Card>
-			<Card>
-				<div id="translateBox" placeholder="Translation">
-					<textarea id="translationBox" placeholder="Translation" value={this.state.korean} />
-				</div>
-			</Card>
-		</CardMain>
-		<Save>
-			<button id="saveBttn" onClick={this.saveCard}>Save</button>
-		</Save>
-		<Footer><Txt phrase={ "UserName" } /></Footer>
+			<Header>
+				<p id="title"> Lango! </p>
+				<button id="startReview"> Start Review </button>
+			</Header>
+			<CardMain>
+				<Card>
+					<div id="inputBox">
+						<textarea id="inputEng" placeholder="English"  onKeyPress={this.checkReturn} />
+					</div>
+				</Card>
+				<Card>
+					<div id="translateBox" placeholder="Translation">
+						<textarea id="translationBox" placeholder="Translation" readOnly value={this.state.korean} />
+					</div>
+				</Card>
+			</CardMain>
+			<Save>
+				<button id="saveBttn" onClick={this.saveCard}>Save</button>
+			</Save>
+			<Footer>
+				<Txt phrase={ "UserName" } />
+			</Footer>
 		</main>
 		);
 	} // end of render function
