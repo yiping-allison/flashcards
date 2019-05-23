@@ -7,6 +7,7 @@
 	font-family: Raleway Black;
 	font-size: 70pt;
 	color: #606B9B;
+	padding-bottom: 150px;
 }
 
 .footer{
@@ -32,14 +33,35 @@
 	padding-left: 40px; 
 	padding-top: 10px;
 	padding-bottom: 10px;
-	float: right;
+	position: absolute;
+	bottom: 100px;
+	right: 40px;
+}
 
+textarea {
+	padding-right: 1%; 
+	padding-left: 1%; 
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+textarea::placeholder {
+	text-align: center;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 
 #inputEng{
 	font-family: Helvetica;
 	font-size: 30pt;
+	float: left;
+	display: flex;
+}
 
+#inputBox {
+	margin-left: 10%;
 }
 
 #startReview{
@@ -54,12 +76,272 @@
 	padding-bottom: 10px;
 	float: left;
 	position:absolute;
-    top:10px;
-    left:20px;
+    top:30px;
+    left:30px;
     padding-right: 40px; 
 	padding-left: 40px; 
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+#translationBox {
+	font-family: Helvetica;
+	display: flex;
+	font-size: 30pt;
+	float: right;
+
+}
+
+#translateBox{
+	margin-right: 10%;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Start tablet division */
+@media screen and (min-width: 800px) {
+
+.headerDiv{
+	text-align: center;
+	font-family: Raleway Black;
+	font-size: 30pt;
+	color: #606B9B;
+	padding-bottom: 150px;
+}
+
+.footer{
+	text-align: center;
+	font-size: 25pt;
+	color: white;
+	background-color: #606B9B;
+	font-family: Helvetica;
+	position:absolute;
+	bottom:0;
+	width:100%;
+
+}
+
+#saveBttn {
+	font-family: Helvetica;
+	font-size: 25pt;
+	align-items: right;
+	color: white;
+	background-color: #70C7A9;
+	border-radius: 25px;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: absolute;
+	bottom: 100px;
+	right: 40px;
+}
+
+textarea {
+	padding-right: 1%; 
+	padding-left: 1%; 
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+textarea::placeholder {
+	text-align: center;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+#inputEng{
+	font-family: Helvetica;
+	font-size: 30pt;
+	float: left;
+	display: flex;
+}
+
+#inputBox {
+	margin-left: 10%;
+}
+
+#startReview{
+	font-family: Helvetica;
+	font-size: 5pt;
+	color: white;
+	background-color: #606B9B;
+	border-radius: 25px;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	float: left;
+	position:absolute;
+    top:30px;
+    left:30px;
+    padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#translationBox {
+	font-family: Helvetica;
+	display: flex;
+	font-size: 30pt;
+	float: right;
+
+}
+
+#translateBox{
+	margin-right: 10%;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Mobile View*/
+@media screen and (min-width: 0px) {
+
+.headerDiv{
+	text-align: center;
+	font-family: Raleway Black;
+	font-size: 70pt;
+	color: #606B9B;
+	padding-bottom: 150px;
+}
+
+.footer{
+	text-align: center;
+	font-size: 25pt;
+	color: white;
+	background-color: #606B9B;
+	font-family: Helvetica;
+	position:absolute;
+	bottom:0;
+	width:100%;
+
+}
+
+#saveBttn {
+	font-family: Helvetica;
+	font-size: 25pt;
+	align-items: right;
+	color: white;
+	background-color: #70C7A9;
+	border-radius: 25px;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	position: absolute;
+	bottom: 100px;
+	right: 40px;
+}
+
+textarea {
+	padding-right: 1%; 
+	padding-left: 1%; 
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+textarea::placeholder {
+	text-align: center;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+#inputEng{
+	font-family: Helvetica;
+	font-size: 30pt;
+	float: left;
+	display: flex;
+}
+
+#inputBox {
+	margin-left: 10%;
+}
+
+#startReview{
+	font-family: Helvetica;
+	font-size: 25pt;
+	color: white;
+	background-color: #606B9B;
+	border-radius: 25px;
+	padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	float: left;
+	position:absolute;
+    top:30px;
+    left:30px;
+    padding-right: 40px; 
+	padding-left: 40px; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#translationBox {
+	font-family: Helvetica;
+	display: flex;
+	font-size: 30pt;
+	float: right;
+
+}
+
+#translateBox{
+	margin-right: 10%;
 }
 
 }

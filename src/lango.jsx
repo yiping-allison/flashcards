@@ -75,7 +75,6 @@ class CreateCardMain extends React.Component {
 			<Card>
 				<div id="translateBox" placeholder="Translation">
 					<textarea id="translationBox" placeholder="Translation" value={this.state.korean} />
-					//<Txt phrase={this.state.korean} />
 				</div>
 			</Card>
 		</CardMain>
