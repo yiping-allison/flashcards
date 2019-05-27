@@ -18,6 +18,7 @@ class CreateLoginMain extends React.Component {
 		this.state = {
 			error: null
 		}
+		this.logIn = this.logIn.bind(this);
 	}
 
 	render() {
@@ -34,11 +35,20 @@ class CreateLoginMain extends React.Component {
 			</TitleText>
 
 			<Login>
-				<button id="loginBttn"> Log in with Google </button>
+				<a href="auth/google" id="googleLink" onClick={this.logIn}> Log in with Google </a>
 			</Login>
 		</main>
 		);
 	}
+
+	logIn() {
+		let url = 'auth/google';
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', url, true);
+		xhr.onload = function () { console.log('logged in!'); };
+		xhr.onerror = function () { console.log('browser sees error'); };
+		xhr.send();
+	}  // END : Log In Handler
 }  // END : CreateLoginMain class
 
 ReactDOM.render(
