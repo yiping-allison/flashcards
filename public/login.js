@@ -35,6 +35,7 @@ var CreateLoginMain = function (_React$Component) {
 		_this.state = {
 			error: null
 		};
+		_this.logIn = _this.logIn.bind(_this);
 		return _this;
 	}
 
@@ -74,13 +75,28 @@ var CreateLoginMain = function (_React$Component) {
 					Login,
 					null,
 					React.createElement(
-						"button",
-						{ id: "loginBttn" },
+						"a",
+						{ href: "auth/google", id: "googleLink", onClick: this.logIn },
 						" Log in with Google "
 					)
 				)
 			);
 		}
+	}, {
+		key: "logIn",
+		value: function logIn() {
+			var url = 'auth/google';
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', url, true);
+			xhr.onload = function () {
+				console.log('logged in!');
+			};
+			xhr.onerror = function () {
+				console.log('browser sees error');
+			};
+			xhr.send();
+		} // END : Log In Handler
+
 	}]);
 
 	return CreateLoginMain;
