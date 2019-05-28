@@ -11,7 +11,7 @@ const db = new sqlite3.Database(dbFileName);  // object, not database.
 // Fix the error by removing or renaming Flashcards.db
 
 // Creating Flashcard database
-const cmdStr = 'CREATE TABLE Flashcards (user INT, english TEXT, korean TEXT, seen INT, correct INT )'
+const cmdStr = 'CREATE TABLE Flashcards (user TEXT, english TEXT, korean TEXT, seen INT, correct INT )'
 db.run(cmdStr,tableCreationCallback);
 // Creating User database
 const cmdStr2 = 'CREATE TABLE UserInfo (firstName TEXT, lastName TEXT, googleID TEXT)'
