@@ -73,10 +73,13 @@ var CreateCardMain = function (_React$Component) {
 
 		_this.state = {
 			korean: "",
-			error: null
+			error: null,
+			user: ""
 		};
 		_this.checkReturn = _this.checkReturn.bind(_this);
 		_this.saveCard = _this.saveCard.bind(_this);
+		_this.getUser = _this.getUser.bind(_this);
+		_this.getUser();
 		return _this;
 	}
 
@@ -146,7 +149,7 @@ var CreateCardMain = function (_React$Component) {
 				React.createElement(
 					Footer,
 					null,
-					React.createElement(Txt, { phrase: "UserName" })
+					React.createElement(Txt, { phrase: this.state.user })
 				)
 			);
 		} // end of render function
@@ -171,7 +174,8 @@ var CreateCardMain = function (_React$Component) {
 					});
 				});
 			}
-		}
+		} // END : Check Return Handler
+
 	}, {
 		key: "saveCard",
 		value: function saveCard() {
@@ -185,7 +189,27 @@ var CreateCardMain = function (_React$Component) {
 					error: error
 				});
 			});
-		}
+		} // END : Save Card Handler
+
+	}, {
+		key: "getUser",
+		value: function getUser() {
+			var _this4 = this;
+
+			var url = "username?user=name";
+			fetch(url).then(function (res) {
+				return res.json();
+			}).then(function (result) {
+				_this4.setState({
+					user: result.user
+				});
+			}, function (error) {
+				_this4.setState({
+					error: error
+				});
+			});
+		} // END : Gets Username Handler	
+
 	}]);
 
 	return CreateCardMain;
