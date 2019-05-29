@@ -110,8 +110,8 @@ var CreateCardMain = function (_React$Component) {
 						" Lango! "
 					),
 					React.createElement(
-						"button",
-						{ id: "startReview" },
+						"a",
+						{ href: "review.html", id: "startReview" },
 						" Start Review "
 					)
 				),
