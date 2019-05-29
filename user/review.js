@@ -66,55 +66,8 @@ function Footer(props) {
 	);
 } // DIV : Footer
 
-var CardInput = function (_React$Component) {
-	_inherits(CardInput, _React$Component);
-
-	function CardInput() {
-		_classCallCheck(this, CardInput);
-
-		return _possibleConstructorReturn(this, (CardInput.__proto__ || Object.getPrototypeOf(CardInput)).apply(this, arguments));
-	}
-
-	_createClass(CardInput, [{
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"fieldset",
-				null,
-				React.createElement("input", { name: this.props.name, id: this.props.id, type: this.props.type || 'text',
-					placeholder: this.props.placeholder, required: true })
-			);
-		}
-	}]);
-
-	return CardInput;
-}(React.Component); // React Component for form inputs
-
-var CardTextarea = function (_React$Component2) {
-	_inherits(CardTextarea, _React$Component2);
-
-	function CardTextarea() {
-		_classCallCheck(this, CardTextarea);
-
-		return _possibleConstructorReturn(this, (CardTextarea.__proto__ || Object.getPrototypeOf(CardTextarea)).apply(this, arguments));
-	}
-
-	_createClass(CardTextarea, [{
-		key: "render",
-		value: function render() {
-			return React.createElement(
-				"fieldset",
-				null,
-				React.createElement("textarea", { name: this.props.name, id: this.props.id, placeholder: this.props.placeholder, required: true })
-			);
-		}
-	}]);
-
-	return CardTextarea;
-}(React.Component); // React component for textarea
-
-var CardFront = function (_React$Component3) {
-	_inherits(CardFront, _React$Component3);
+var CardFront = function (_React$Component) {
+	_inherits(CardFront, _React$Component);
 
 	function CardFront() {
 		_classCallCheck(this, CardFront);
@@ -144,8 +97,8 @@ var CardFront = function (_React$Component3) {
 	return CardFront;
 }(React.Component); // React Component for front side of the card
 
-var CardBack = function (_React$Component4) {
-	_inherits(CardBack, _React$Component4);
+var CardBack = function (_React$Component2) {
+	_inherits(CardBack, _React$Component2);
 
 	function CardBack() {
 		_classCallCheck(this, CardBack);
@@ -175,25 +128,19 @@ var CardBack = function (_React$Component4) {
 	return CardBack;
 }(React.Component); // React Component for back side of the card
 
-var Card = function (_React$Component5) {
-	_inherits(Card, _React$Component5);
+var Card = function (_React$Component3) {
+	_inherits(Card, _React$Component3);
 
-	function Card(props) {
+	function Card() {
 		_classCallCheck(this, Card);
 
-		var _this5 = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
-
-		_this5.state = {
-			error: null,
-			word: ""
-		};
-		_this5.getWord = _this5.getWord.bind(_this5);
-		_this5.getWord();
-		return _this5;
+		return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
 	}
 
 	_createClass(Card, [{
 		key: "render",
+
+		// TODO: Fix input checking on CardBack
 		value: function render() {
 			return React.createElement(
 				"div",
@@ -201,50 +148,36 @@ var Card = function (_React$Component5) {
 				React.createElement(
 					"div",
 					{ className: "card-body" },
-					React.createElement(CardBack, { text: "Correct!" }),
-					React.createElement(CardFront, { text: this.state.word })
+					React.createElement(CardBack, { text: this.props.ans }),
+					React.createElement(CardFront, { text: this.props.word })
 				)
 			);
 		}
-	}, {
-		key: "getWord",
-		value: function getWord() {
-			var _this6 = this;
-
-			var url = "randomword?word=newWord";
-			fetch(url).then(function (res) {
-				return res.json();
-			}).then(function (result) {
-				_this6.setState({
-					word: result.wd
-				});
-			}, function (error) {
-				_this6.setState({
-					error: error
-				});
-			});
-		} // gets a word from user's database
-
 	}]);
 
 	return Card;
 }(React.Component); // React component for the card
 
-var CreateReviewMain = function (_React$Component6) {
-	_inherits(CreateReviewMain, _React$Component6);
+var CreateReviewMain = function (_React$Component4) {
+	_inherits(CreateReviewMain, _React$Component4);
 
 	function CreateReviewMain(props) {
 		_classCallCheck(this, CreateReviewMain);
 
-		var _this7 = _possibleConstructorReturn(this, (CreateReviewMain.__proto__ || Object.getPrototypeOf(CreateReviewMain)).call(this, props));
+		var _this4 = _possibleConstructorReturn(this, (CreateReviewMain.__proto__ || Object.getPrototypeOf(CreateReviewMain)).call(this, props));
 
-		_this7.state = {
+		_this4.state = {
 			error: null,
-			user: ""
+			user: "",
+			kor: "",
+			eng: ""
 		};
-		_this7.getUser = _this7.getUser.bind(_this7);
-		_this7.getUser();
-		return _this7;
+		_this4.getUser = _this4.getUser.bind(_this4);
+		_this4.getWord = _this4.getWord.bind(_this4);
+		_this4.checkReturn = _this4.checkReturn.bind(_this4);
+		_this4.getUser();
+		_this4.getWord();
+		return _this4;
 	}
 
 	_createClass(CreateReviewMain, [{
@@ -279,8 +212,12 @@ var CreateReviewMain = function (_React$Component6) {
 						" Add "
 					)
 				),
-				React.createElement(Card, null),
-				React.createElement(CardInput, null),
+				React.createElement(Card, { word: this.state.kor, ans: this.state.eng }),
+				React.createElement(
+					"div",
+					{ id: "inputArea" },
+					React.createElement("textarea", { id: "userInput", placeholder: "Enter your translation here!", onKeyPress: this.checkReturn })
+				),
 				React.createElement(
 					Next,
 					null,
@@ -300,21 +237,58 @@ var CreateReviewMain = function (_React$Component6) {
 	}, {
 		key: "getUser",
 		value: function getUser() {
-			var _this8 = this;
+			var _this5 = this;
 
 			var url = "username?user=name";
 			fetch(url).then(function (res) {
 				return res.json();
 			}).then(function (result) {
-				_this8.setState({
+				_this5.setState({
 					user: result.user
 				});
 			}, function (error) {
-				_this8.setState({
+				_this5.setState({
 					error: error
 				});
 			});
 		} // END : Gets Username Handler
+
+	}, {
+		key: "getWord",
+		value: function getWord() {
+			var _this6 = this;
+
+			var url = "randomword?word=newWord";
+			fetch(url).then(function (res) {
+				return res.json();
+			}).then(function (result) {
+				_this6.setState({
+					kor: result.korWd,
+					eng: result.engWd
+				});
+			}, function (error) {
+				_this6.setState({
+					error: error
+				});
+			});
+		} // gets a word from user's database
+
+	}, {
+		key: "checkReturn",
+		value: function checkReturn() {
+			if (event.charCode == 13) {
+				// TODO: Finish user guess checking
+				var userAns = document.getElementById('userInput').value;
+				if (userAns == this.state.eng) {
+					// user is correct!
+					console.log('user correct');
+					React.createElement(Card, { word: this.state.kor, ans: "Correct!" });
+				} else {
+					console.log('user wrong');
+					React.createElement(Card, { word: this.state.kor, ans: this.state.eng });
+				}
+			}
+		} // END : Return key check
 
 	}]);
 
