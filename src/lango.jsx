@@ -42,10 +42,13 @@ class CreateCardMain extends React.Component {
 		super(props);
 		this.state = { 
 			korean: "",
-			error: null
+			error: null,
+			user: ""
 		}
 		this.checkReturn = this.checkReturn.bind(this);
 		this.saveCard = this.saveCard.bind(this);
+		this.getUser = this.getUser.bind(this);
+		this.getUser();
 	}
 
 	render() {
@@ -75,7 +78,7 @@ class CreateCardMain extends React.Component {
 				<button id="saveBttn" onClick={this.saveCard}>Save</button>
 			</Save>
 			<Footer>
-				<Txt phrase={ "UserName" } />
+				<Txt phrase={ this.state.user } />
 			</Footer>
 		</main>
 		);
@@ -100,7 +103,7 @@ class CreateCardMain extends React.Component {
 					}
 				)
 		}
-	}
+	}  // END : Check Return Handler
 
 	saveCard() {
 		let translatedWord = this.state.korean;
@@ -114,7 +117,26 @@ class CreateCardMain extends React.Component {
 					});
 				}
 			)
-	}
+	}  // END : Save Card Handler
+
+	getUser() {
+		let url = "username?user=name";
+		fetch(url)
+			.then(res => res.json())
+			.then(
+				(result) => {
+					this.setState( {
+						user: result.user
+					});
+				},
+				(error) => {
+					this.setState( {
+						error
+					});
+				}
+			)
+	} // END : Gets Username Handler	
+
 } // end class
 
 ReactDOM.render(
