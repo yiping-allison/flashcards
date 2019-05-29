@@ -88,17 +88,46 @@ class CardBack extends React.Component {
 }  // React Component for back side of the card
 
 class Card extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			error: null,
+			word: ""
+		}
+		this.getWord = this.getWord.bind(this);
+		this.getWord();
+	}
+
 	render() {
 		return(
 			<div className='card-container'>
 				<div className='card-body'>
 					<CardBack text="Correct!" />
 
-					<CardFront text="Volare" />
+					<CardFront text={this.state.word} />
 				</div>
 			</div>
 		)
 	}
+
+	getWord() {
+		let url = "randomword?word=newWord";
+		fetch(url)
+			.then(res => res.json())
+			.then(
+				(result) => {
+					this.setState( {
+						word: result.wd
+					});
+				},
+				(error) => {
+					this.setState( {
+						error
+					});
+				}
+			)
+	}  // gets a word from user's database
+
 }  // React component for the card
 
 class CreateReviewMain extends React.Component {
@@ -125,6 +154,7 @@ class CreateReviewMain extends React.Component {
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
 			<Card />
+			<CardInput />
 			<Next>
 				<button id="nextBttn" onClick={this.nextCard}>Next</button>
 			</Next>

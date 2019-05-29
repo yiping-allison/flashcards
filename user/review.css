@@ -15,9 +15,9 @@ h2 {
 }
 
 h1 {
-  margin-bottom: 16px;
-  font-size: 24px;
-  font-weight: 700;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 h2 {
@@ -41,8 +41,8 @@ h2 {
   position: relative;
   z-index: 1;
   margin: 32px auto;
-  max-width: 720px;
-  height: 420px;
+  max-width: 420px;
+  height: 320px;
   -webkit-perspective: 1000px;
           perspective: 1000px;
 }
@@ -86,7 +86,7 @@ h2 {
 /*- Back side -*/
 .side-back {
   z-index: 2;
-  padding: 32px;
+  padding: 5px;
   text-align: center;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
@@ -95,7 +95,7 @@ h2 {
 
 input,
 textarea {
-  padding: 8px;
+  padding: 5px;
   width: 100%;
   border-top: 0;
   border-right: 0;
@@ -109,7 +109,7 @@ textarea:focus {
 }
 
 textarea {
-  max-height: 80px;
+  max-height: 70px;
   resize: vertical;
 }
 

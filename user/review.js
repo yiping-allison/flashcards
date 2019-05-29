@@ -178,10 +178,18 @@ var CardBack = function (_React$Component4) {
 var Card = function (_React$Component5) {
 	_inherits(Card, _React$Component5);
 
-	function Card() {
+	function Card(props) {
 		_classCallCheck(this, Card);
 
-		return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
+		var _this5 = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
+
+		_this5.state = {
+			error: null,
+			word: ""
+		};
+		_this5.getWord = _this5.getWord.bind(_this5);
+		_this5.getWord();
+		return _this5;
 	}
 
 	_createClass(Card, [{
@@ -194,10 +202,29 @@ var Card = function (_React$Component5) {
 					"div",
 					{ className: "card-body" },
 					React.createElement(CardBack, { text: "Correct!" }),
-					React.createElement(CardFront, { text: "Volare" })
+					React.createElement(CardFront, { text: this.state.word })
 				)
 			);
 		}
+	}, {
+		key: "getWord",
+		value: function getWord() {
+			var _this6 = this;
+
+			var url = "randomword?word=newWord";
+			fetch(url).then(function (res) {
+				return res.json();
+			}).then(function (result) {
+				_this6.setState({
+					word: result.wd
+				});
+			}, function (error) {
+				_this6.setState({
+					error: error
+				});
+			});
+		} // gets a word from user's database
+
 	}]);
 
 	return Card;
@@ -209,15 +236,15 @@ var CreateReviewMain = function (_React$Component6) {
 	function CreateReviewMain(props) {
 		_classCallCheck(this, CreateReviewMain);
 
-		var _this6 = _possibleConstructorReturn(this, (CreateReviewMain.__proto__ || Object.getPrototypeOf(CreateReviewMain)).call(this, props));
+		var _this7 = _possibleConstructorReturn(this, (CreateReviewMain.__proto__ || Object.getPrototypeOf(CreateReviewMain)).call(this, props));
 
-		_this6.state = {
+		_this7.state = {
 			error: null,
 			user: ""
 		};
-		_this6.getUser = _this6.getUser.bind(_this6);
-		_this6.getUser();
-		return _this6;
+		_this7.getUser = _this7.getUser.bind(_this7);
+		_this7.getUser();
+		return _this7;
 	}
 
 	_createClass(CreateReviewMain, [{
@@ -253,6 +280,7 @@ var CreateReviewMain = function (_React$Component6) {
 					)
 				),
 				React.createElement(Card, null),
+				React.createElement(CardInput, null),
 				React.createElement(
 					Next,
 					null,
@@ -272,17 +300,17 @@ var CreateReviewMain = function (_React$Component6) {
 	}, {
 		key: "getUser",
 		value: function getUser() {
-			var _this7 = this;
+			var _this8 = this;
 
 			var url = "username?user=name";
 			fetch(url).then(function (res) {
 				return res.json();
 			}).then(function (result) {
-				_this7.setState({
+				_this8.setState({
 					user: result.user
 				});
 			}, function (error) {
-				_this7.setState({
+				_this8.setState({
 					error: error
 				});
 			});
