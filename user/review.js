@@ -1,5 +1,14 @@
 'use strict';
 
+/*
+	Flipcard component is based on flipcard component by
+	Alex Devero at:
+		https://reactjsexample.com/react-flipping-card-with-tutorial/
+	Modified by Nina Amenta for ECS 162, May 2019
+*/
+
+//const cardContainer = document.querySelector('.react-card');
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -57,21 +66,158 @@ function Footer(props) {
 	);
 } // DIV : Footer
 
-var CreateReviewMain = function (_React$Component) {
-	_inherits(CreateReviewMain, _React$Component);
+var CardInput = function (_React$Component) {
+	_inherits(CardInput, _React$Component);
+
+	function CardInput() {
+		_classCallCheck(this, CardInput);
+
+		return _possibleConstructorReturn(this, (CardInput.__proto__ || Object.getPrototypeOf(CardInput)).apply(this, arguments));
+	}
+
+	_createClass(CardInput, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"fieldset",
+				null,
+				React.createElement("input", { name: this.props.name, id: this.props.id, type: this.props.type || 'text',
+					placeholder: this.props.placeholder, required: true })
+			);
+		}
+	}]);
+
+	return CardInput;
+}(React.Component); // React Component for form inputs
+
+var CardTextarea = function (_React$Component2) {
+	_inherits(CardTextarea, _React$Component2);
+
+	function CardTextarea() {
+		_classCallCheck(this, CardTextarea);
+
+		return _possibleConstructorReturn(this, (CardTextarea.__proto__ || Object.getPrototypeOf(CardTextarea)).apply(this, arguments));
+	}
+
+	_createClass(CardTextarea, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"fieldset",
+				null,
+				React.createElement("textarea", { name: this.props.name, id: this.props.id, placeholder: this.props.placeholder, required: true })
+			);
+		}
+	}]);
+
+	return CardTextarea;
+}(React.Component); // React component for textarea
+
+var CardFront = function (_React$Component3) {
+	_inherits(CardFront, _React$Component3);
+
+	function CardFront() {
+		_classCallCheck(this, CardFront);
+
+		return _possibleConstructorReturn(this, (CardFront.__proto__ || Object.getPrototypeOf(CardFront)).apply(this, arguments));
+	}
+
+	_createClass(CardFront, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "card-side side-front" },
+				React.createElement(
+					"div",
+					{ className: "card-side-container" },
+					React.createElement(
+						"h2",
+						{ id: "trans" },
+						this.props.text
+					)
+				)
+			);
+		}
+	}]);
+
+	return CardFront;
+}(React.Component); // React Component for front side of the card
+
+var CardBack = function (_React$Component4) {
+	_inherits(CardBack, _React$Component4);
+
+	function CardBack() {
+		_classCallCheck(this, CardBack);
+
+		return _possibleConstructorReturn(this, (CardBack.__proto__ || Object.getPrototypeOf(CardBack)).apply(this, arguments));
+	}
+
+	_createClass(CardBack, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "card-side side-back" },
+				React.createElement(
+					"div",
+					{ className: "card-side-container" },
+					React.createElement(
+						"h2",
+						{ id: "congrats" },
+						this.props.text
+					)
+				)
+			);
+		}
+	}]);
+
+	return CardBack;
+}(React.Component); // React Component for back side of the card
+
+var Card = function (_React$Component5) {
+	_inherits(Card, _React$Component5);
+
+	function Card() {
+		_classCallCheck(this, Card);
+
+		return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
+	}
+
+	_createClass(Card, [{
+		key: "render",
+		value: function render() {
+			return React.createElement(
+				"div",
+				{ className: "card-container" },
+				React.createElement(
+					"div",
+					{ className: "card-body" },
+					React.createElement(CardBack, { text: "Correct!" }),
+					React.createElement(CardFront, { text: "Volare" })
+				)
+			);
+		}
+	}]);
+
+	return Card;
+}(React.Component); // React component for the card
+
+var CreateReviewMain = function (_React$Component6) {
+	_inherits(CreateReviewMain, _React$Component6);
 
 	function CreateReviewMain(props) {
 		_classCallCheck(this, CreateReviewMain);
 
-		var _this = _possibleConstructorReturn(this, (CreateReviewMain.__proto__ || Object.getPrototypeOf(CreateReviewMain)).call(this, props));
+		var _this6 = _possibleConstructorReturn(this, (CreateReviewMain.__proto__ || Object.getPrototypeOf(CreateReviewMain)).call(this, props));
 
-		_this.state = {
+		_this6.state = {
 			error: null,
 			user: ""
 		};
-		_this.getUser = _this.getUser.bind(_this);
-		_this.getUser();
-		return _this;
+		_this6.getUser = _this6.getUser.bind(_this6);
+		_this6.getUser();
+		return _this6;
 	}
 
 	_createClass(CreateReviewMain, [{
@@ -106,7 +252,7 @@ var CreateReviewMain = function (_React$Component) {
 						" Add "
 					)
 				),
-				React.createElement(CardMain, null),
+				React.createElement(Card, null),
 				React.createElement(
 					Next,
 					null,
@@ -126,17 +272,17 @@ var CreateReviewMain = function (_React$Component) {
 	}, {
 		key: "getUser",
 		value: function getUser() {
-			var _this2 = this;
+			var _this7 = this;
 
 			var url = "username?user=name";
 			fetch(url).then(function (res) {
 				return res.json();
 			}).then(function (result) {
-				_this2.setState({
+				_this7.setState({
 					user: result.user
 				});
 			}, function (error) {
-				_this2.setState({
+				_this7.setState({
 					error: error
 				});
 			});

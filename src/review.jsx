@@ -1,5 +1,14 @@
 'use strict';
 
+/*
+	Flipcard component is based on flipcard component by
+	Alex Devero at:
+		https://reactjsexample.com/react-flipping-card-with-tutorial/
+	Modified by Nina Amenta for ECS 162, May 2019
+*/
+
+//const cardContainer = document.querySelector('.react-card');
+
 function Header(props) {
 	return <div className = "header">
 		{ props.children }
@@ -32,6 +41,66 @@ function Footer(props) {
 		</div>;
 }  // DIV : Footer
 
+class CardInput extends React.Component {
+	render() {
+		return(
+			<fieldset>
+				<input name={this.props.name} id={this.props.id} type={this.props.type || 'text'} 
+				placeholder={this.props.placeholder} required />
+			</fieldset>
+		)
+	}
+}  // React Component for form inputs
+
+class CardTextarea extends React.Component {
+	render() {
+		return(
+			<fieldset>
+				<textarea name={this.props.name} id={this.props.id} placeholder={this.props.placeholder} required>
+				</textarea>
+			</fieldset>
+		)
+	}
+}  // React component for textarea
+
+class CardFront extends React.Component {
+	render() {
+		return(
+			<div className='card-side side-front'>
+				<div className='card-side-container'>
+					<h2 id='trans'>{this.props.text}</h2>
+				</div>
+			</div>
+		)
+	}
+}  // React Component for front side of the card
+
+class CardBack extends React.Component {
+	render() {
+		return(
+			<div className='card-side side-back'>
+				<div className='card-side-container'>
+					<h2 id='congrats'>{this.props.text}</h2>
+				</div>
+			</div>
+		)
+	}
+}  // React Component for back side of the card
+
+class Card extends React.Component {
+	render() {
+		return(
+			<div className='card-container'>
+				<div className='card-body'>
+					<CardBack text="Correct!" />
+
+					<CardFront text="Volare" />
+				</div>
+			</div>
+		)
+	}
+}  // React component for the card
+
 class CreateReviewMain extends React.Component {
 	constructor(props) {
 		super(props);
@@ -55,9 +124,7 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<CardMain>
-
-			</CardMain>
+			<Card />
 			<Next>
 				<button id="nextBttn" onClick={this.nextCard}>Next</button>
 			</Next>
