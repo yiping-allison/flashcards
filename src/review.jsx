@@ -41,28 +41,6 @@ function Footer(props) {
 		</div>;
 }  // DIV : Footer
 
-class CardInput extends React.Component {
-	render() {
-		return(
-			<fieldset>
-				<input name={this.props.name} id={this.props.id} type={this.props.type || 'text'} 
-				placeholder={this.props.placeholder} required />
-			</fieldset>
-		)
-	}
-}  // React Component for form inputs
-
-class CardTextarea extends React.Component {
-	render() {
-		return(
-			<fieldset>
-				<textarea name={this.props.name} id={this.props.id} placeholder={this.props.placeholder} required>
-				</textarea>
-			</fieldset>
-		)
-	}
-}  // React component for textarea
-
 class CardFront extends React.Component {
 	render() {
 		return(
@@ -88,46 +66,18 @@ class CardBack extends React.Component {
 }  // React Component for back side of the card
 
 class Card extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			error: null,
-			word: ""
-		}
-		this.getWord = this.getWord.bind(this);
-		this.getWord();
-	}
-
+	// TODO: Fix input checking on CardBack
 	render() {
 		return(
 			<div className='card-container'>
 				<div className='card-body'>
-					<CardBack text="Correct!" />
+					<CardBack text={ this.props.ans } />
 
-					<CardFront text={this.state.word} />
+					<CardFront text={this.props.word} />
 				</div>
 			</div>
 		)
 	}
-
-	getWord() {
-		let url = "randomword?word=newWord";
-		fetch(url)
-			.then(res => res.json())
-			.then(
-				(result) => {
-					this.setState( {
-						word: result.wd
-					});
-				},
-				(error) => {
-					this.setState( {
-						error
-					});
-				}
-			)
-	}  // gets a word from user's database
-
 }  // React component for the card
 
 class CreateReviewMain extends React.Component {
@@ -135,10 +85,15 @@ class CreateReviewMain extends React.Component {
 		super(props);
 		this.state = {
 			error: null,
-			user: ""
+			user: "",
+			kor: "",
+			eng: ""
 		}
 		this.getUser = this.getUser.bind(this);
+		this.getWord = this.getWord.bind(this);
+		this.checkReturn = this.checkReturn.bind(this);
 		this.getUser();
+		this.getWord();
 	}
 
 	render() {
@@ -153,8 +108,10 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<Card />
-			<CardInput />
+			<Card word={this.state.kor} ans={this.state.eng} />
+			<div id="inputArea">
+				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
+			</div>
 			<Next>
 				<button id="nextBttn" onClick={this.nextCard}>Next</button>
 			</Next>
@@ -182,6 +139,40 @@ class CreateReviewMain extends React.Component {
 				}
 			)
 	}  // END : Gets Username Handler
+	
+	getWord() {
+		let url = "randomword?word=newWord";
+		fetch(url)
+			.then(res => res.json())
+			.then(
+				(result) => {
+					this.setState( {
+						kor: result.korWd,
+						eng: result.engWd
+					});
+				},
+				(error) => {
+					this.setState( {
+						error
+					});
+				}
+			)
+	}  // gets a word from user's database
+
+	checkReturn() {
+		if (event.charCode == 13) {
+			// TODO: Finish user guess checking
+			let userAns = document.getElementById('userInput').value;
+			if (userAns == this.state.eng) {
+				// user is correct!
+				console.log('user correct');
+				<Card word={this.state.kor} ans={"Correct!"} />
+			} else {
+				console.log('user wrong');
+				<Card word={this.state.kor} ans={this.state.eng} />
+			}
+		}
+	}  // END : Return key check
 }
 
 ReactDOM.render(
