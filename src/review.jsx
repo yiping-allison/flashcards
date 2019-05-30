@@ -1,5 +1,14 @@
 'use strict';
 
+/*
+	Flipcard component is based on flipcard component by
+	Alex Devero at:
+		https://reactjsexample.com/react-flipping-card-with-tutorial/
+	Modified by Nina Amenta for ECS 162, May 2019
+*/
+
+//const cardContainer = document.querySelector('.react-card');
+
 function Header(props) {
 	return <div className = "header">
 		{ props.children }
@@ -32,15 +41,59 @@ function Footer(props) {
 		</div>;
 }  // DIV : Footer
 
+class CardFront extends React.Component {
+	render() {
+		return(
+			<div className='card-side side-front'>
+				<div className='card-side-container'>
+					<h2 id='trans'>{this.props.text}</h2>
+				</div>
+			</div>
+		)
+	}
+}  // React Component for front side of the card
+
+class CardBack extends React.Component {
+	render() {
+		return(
+			<div className='card-side side-back'>
+				<div className='card-side-container'>
+					<h2 id='congrats'>{this.props.text}</h2>
+				</div>
+			</div>
+		)
+	}
+}  // React Component for back side of the card
+
+class Card extends React.Component {
+	// TODO: Fix input checking on CardBack
+	render() {
+		return(
+			<div className='card-container'>
+				<div className='card-body'>
+					<CardBack text={ this.props.ans } />
+
+					<CardFront text={this.props.word} />
+				</div>
+			</div>
+		)
+	}
+}  // React component for the card
+
 class CreateReviewMain extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			error: null,
-			user: ""
+			user: "",
+			kor: "",
+			eng: ""
 		}
 		this.getUser = this.getUser.bind(this);
+		this.getWord = this.getWord.bind(this);
+		this.checkReturn = this.checkReturn.bind(this);
 		this.getUser();
+		this.getWord();
 	}
 
 	render() {
@@ -55,9 +108,10 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<CardMain>
-
-			</CardMain>
+			<Card word={this.state.kor} ans={this.state.eng} />
+			<div id="inputArea">
+				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
+			</div>
 			<Next>
 				<button id="nextBttn" onClick={this.nextCard}>Next</button>
 			</Next>
@@ -85,6 +139,40 @@ class CreateReviewMain extends React.Component {
 				}
 			)
 	}  // END : Gets Username Handler
+	
+	getWord() {
+		let url = "randomword?word=newWord";
+		fetch(url)
+			.then(res => res.json())
+			.then(
+				(result) => {
+					this.setState( {
+						kor: result.korWd,
+						eng: result.engWd
+					});
+				},
+				(error) => {
+					this.setState( {
+						error
+					});
+				}
+			)
+	}  // gets a word from user's database
+
+	checkReturn() {
+		if (event.charCode == 13) {
+			// TODO: Finish user guess checking
+			let userAns = document.getElementById('userInput').value;
+			if (userAns == this.state.eng) {
+				// user is correct!
+				console.log('user correct');
+				<Card word={this.state.kor} ans={"Correct!"} />
+			} else {
+				console.log('user wrong');
+				<Card word={this.state.kor} ans={this.state.eng} />
+			}
+		}
+	}  // END : Return key check
 }
 
 ReactDOM.render(

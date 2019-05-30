@@ -60,7 +60,7 @@ class CreateCardMain extends React.Component {
 		<main>
 			<Header>
 				<p id="title"> Lango! </p>
-				<button id="startReview"> Start Review </button>
+				<a href="review.html" id="startReview"> Start Review </a>
 			</Header>
 			<CardMain>
 				<Card>
