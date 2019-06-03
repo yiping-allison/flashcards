@@ -24,6 +24,14 @@ function Login(props) {
 	);
 } // DIV : Login
 
+function Google(props) {
+	return React.createElement(
+		"div",
+		{ className: "google" },
+		props.children
+	);
+} // DIV : Google
+
 var CreateLoginMain = function (_React$Component) {
 	_inherits(CreateLoginMain, _React$Component);
 
@@ -75,9 +83,14 @@ var CreateLoginMain = function (_React$Component) {
 					Login,
 					null,
 					React.createElement(
-						"a",
-						{ href: "auth/google", id: "googleLink", onClick: this.logIn },
-						" Log in with Google "
+						Google,
+						null,
+						React.createElement(
+							"a",
+							{ href: "auth/google", id: "googleLink", onClick: this.logIn },
+							" Log in with Google "
+						),
+						React.createElement("img", { src: "google.jpg", id: "googleImg" })
 					)
 				)
 			);

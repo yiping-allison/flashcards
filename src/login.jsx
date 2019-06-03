@@ -12,6 +12,12 @@ function Login(props) {
 		</div>;
 }  // DIV : Login
 
+function Google(props) {
+	return <div className = "google">
+		{ props.children }
+		</div>;
+}  // DIV : Google
+
 class CreateLoginMain extends React.Component {
 	constructor(props) {
 		super(props);
@@ -35,7 +41,10 @@ class CreateLoginMain extends React.Component {
 			</TitleText>
 
 			<Login>
-				<a href="auth/google" id="googleLink" onClick={this.logIn}> Log in with Google </a>
+				<Google>
+					<a href="auth/google" id="googleLink" onClick={this.logIn}> Log in with Google </a>
+					<img src = "google.jpg" id = "googleImg" />
+				</Google>
 			</Login>
 		</main>
 		);

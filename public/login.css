@@ -1,0 +1,132 @@
+
+/* COMPUTER STYLING*/
+@media screen and (max-width: 1280px) {
+
+#mainTitle {
+	font-family: 'Raleway', sans-serif;
+	font-size: 65pt;
+	color: white;
+	text-align: center;
+	font-weight: 700;
+}
+
+#subText{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 35pt;
+	color: #70C7A9;
+	text-align: center;
+	font-weight: lighter;
+}
+
+#googleLink {
+	color: white;
+    text-decoration: none;
+    background-color: #70C7A9;
+    margin-right: 75%;
+}
+
+#googleImg{
+	display: fixed;
+	float: center;
+	clear: left;
+	overflow: auto;
+	width: 7%;
+	height: auto
+}
+
+.google{
+	position: fixed;
+	top: 0;
+    right: 0;
+    background-color: #70C7A9;
+}
+
+.titleDiv{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #606B9B, #B191D4);
+    box-shadow: 0px 8px 70px rgba(0, 0, 0, 0.9);
+
+}
+
+.login{
+	font-family: Helvetica;
+	font-size: 25pt;
+	color: white;
+	text-align: center;
+}
+
+main {
+	display: flex;
+}
+
+}
+
+/* Start tablet division */
+@media screen and (max-width: 1024px) {
+
+#mainTitle {
+	font-family: 'Raleway', sans-serif;
+	font-size: 75pt;
+	color: white;
+}
+
+#subText{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 45pt;
+	color: #70C7A9;
+}
+
+.titleDiv{
+	height: 100%;
+	width: 50%;
+    background: linear-gradient(to bottom right, #606B9B, #B191D4);
+}
+
+.login{
+	font-family: Helvetica;
+	font-size: 25pt;
+	color: white;
+}
+
+main {
+	display: flex;
+}
+
+}
+
+/*Mobile View*/
+@media screen and (max-width: 480px) {
+
+#mainTitle {
+	font-family: 'Raleway', sans-serif;
+	font-size: 75pt;
+	color: white;
+}
+
+#subText{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 45pt;
+	color: #70C7A9;
+}
+
+.titleDiv{
+	height: 100%;
+	width: 50%;
+    background: linear-gradient(to bottom right, #606B9B, #B191D4);
+}
+
+.login{
+	font-family: Helvetica;
+	font-size: 25pt;
+	color: white;
+}
+
+main {
+	display: flex;
+}
+
+}
