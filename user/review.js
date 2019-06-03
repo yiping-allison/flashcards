@@ -223,7 +223,7 @@ var CreateReviewMain = function (_React$Component4) {
 					null,
 					React.createElement(
 						"button",
-						{ id: "nextBttn", onClick: this.nextCard },
+						{ id: "nextBttn", onClick: this.getWord },
 						"Next"
 					)
 				),
@@ -280,8 +280,10 @@ var CreateReviewMain = function (_React$Component4) {
 				// TODO: Finish user guess checking
 				var userAns = document.getElementById('userInput').value;
 				if (userAns == this.state.eng) {
-					// user is correct!
+					// user is correct! update state
 					console.log('user correct');
+					var url = "updateCorrect?cor=" + userAns;
+					fetch(url);
 					React.createElement(Card, { word: this.state.kor, ans: "Correct!" });
 				} else {
 					console.log('user wrong');

@@ -113,7 +113,7 @@ class CreateReviewMain extends React.Component {
 				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
 			</div>
 			<Next>
-				<button id="nextBttn" onClick={this.nextCard}>Next</button>
+				<button id="nextBttn" onClick={this.getWord}>Next</button>
 			</Next>
 			<Footer>
 				<Txt phrase={this.state.user}  />
@@ -164,8 +164,10 @@ class CreateReviewMain extends React.Component {
 			// TODO: Finish user guess checking
 			let userAns = document.getElementById('userInput').value;
 			if (userAns == this.state.eng) {
-				// user is correct!
+				// user is correct! update state
 				console.log('user correct');
+				let url = "updateCorrect?cor="+userAns;
+				fetch(url);
 				<Card word={this.state.kor} ans={"Correct!"} />
 			} else {
 				console.log('user wrong');
