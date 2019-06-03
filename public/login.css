@@ -1,62 +1,65 @@
-
-/* COMPUTER STYLING*/
-@media screen and (max-width: 1280px) {
+/*Mobile View*/
+@media screen and (min-width: 0px) {
 
 #mainTitle {
 	font-family: 'Raleway', sans-serif;
-	font-size: 65pt;
+	font-size: 45pt;
 	color: white;
-	text-align: center;
+	padding-top: 18%;
+	margin-left: 16%;
+	text-align: left;
 	font-weight: 700;
 }
 
 #subText{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 35pt;
+	font-size: 20pt;
 	color: #70C7A9;
 	text-align: center;
 	font-weight: lighter;
 }
 
 #googleLink {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	white-space: nowrap;
 	color: white;
     text-decoration: none;
     background-color: #70C7A9;
-    margin-right: 75%;
 }
 
 #googleImg{
-	display: fixed;
-	float: center;
-	clear: left;
-	overflow: auto;
-	width: 7%;
-	height: auto
+	position: absolute;
+	bottom: 11%;
+	left: 27%;
+	width: 5%;
 }
 
 .google{
-	position: fixed;
-	top: 0;
-    right: 0;
+	float: left;
     background-color: #70C7A9;
+    padding-left: 25%;
+    padding-right: 10%;
 }
 
 .titleDiv{
 	position: fixed;
     top: 0;
     left: 0;
-    width: 50%;
-    height: 100%;
+    height: 75%;
+    width: 100%;
     background: linear-gradient(to bottom right, #606B9B, #B191D4);
     box-shadow: 0px 8px 70px rgba(0, 0, 0, 0.9);
 
 }
 
 .login{
+	margin-left: 25%;
+	margin-right: 60%;
+	margin-top: 115%;
 	font-family: Helvetica;
-	font-size: 25pt;
+	font-size: 15pt;
 	color: white;
-	text-align: center;
 }
 
 main {
@@ -66,27 +69,136 @@ main {
 }
 
 /* Start tablet division */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 768px) {
 
 #mainTitle {
 	font-family: 'Raleway', sans-serif;
-	font-size: 75pt;
+	font-size: 55pt;
+	padding-top: 10%;
 	color: white;
+	margin-left: 16%;
+	text-align: left;
+	font-weight: 700;
 }
 
 #subText{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 45pt;
+	font-size: 30pt;
 	color: #70C7A9;
+	margin-left: 16%;
+	text-align: left;
+	font-weight: lighter;
+}
+
+#googleLink {
+	text-overflow: ellipsis; 
+	overflow: hidden; 
+	white-space: nowrap;
+	color: white;
+    text-decoration: none;
+    background-color: #70C7A9;
+}
+
+#googleImg{
+	position: absolute;
+	bottom: 10.5%;
+	left: 33%;
+	width: 4%;
+}
+
+.google{
+	float: left;
+    background-color: #70C7A9;
+    padding-left: 30%;
+    padding-right: 10%;
 }
 
 .titleDiv{
-	height: 100%;
-	width: 50%;
+	position: fixed;
+    top: 0;
+    left: 0;
+    height: 75%;
+    width: 100%;
     background: linear-gradient(to bottom right, #606B9B, #B191D4);
+    box-shadow: 0px 8px 70px rgba(0, 0, 0, 0.9);
+
 }
 
 .login{
+	margin-left: 30%;
+	margin-right: 60%;
+	margin-top: 72%;
+	font-family: Helvetica;
+	font-size: 20pt;
+	color: white;
+}
+
+main {
+	display: flex;
+}
+
+}
+
+
+/* COMPUTER STYLING*/
+@media screen and (min-width: 1100px) {
+
+#mainTitle {
+	font-family: 'Raleway', sans-serif;
+	font-size: 60pt;
+	color: white;
+	margin-left: 1%
+	text-align: left;
+	font-weight: 700;
+}
+
+#subText{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 25pt;
+	color: #70C7A9;
+	margin-left: 1%
+	text-align: left;
+	font-weight: lighter;
+}
+
+#googleLink {
+	color: white;
+    text-decoration: none;
+    background-color: #70C7A9;
+    margin-right: 75%;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+#googleImg{
+	position: absolute;
+	bottom: 45.24%;
+	left: 64.5%;
+	width: 3.5%;
+}
+
+.google{
+	float: left;
+    background-color: #70C7A9;
+    padding-left: 14%;
+    padding-right: 5%;
+}
+
+.titleDiv{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    /*background: linear-gradient(to bottom right, #606B9B, #B191D4);*/
+    box-shadow: 0px 8px 70px rgba(0, 0, 0, 0.9);
+
+}
+
+.login{
+	margin-left: 64%;
+	margin-right: 11%;
+	margin-top: 25%;
 	font-family: Helvetica;
 	font-size: 25pt;
 	color: white;
@@ -98,35 +210,3 @@ main {
 
 }
 
-/*Mobile View*/
-@media screen and (max-width: 480px) {
-
-#mainTitle {
-	font-family: 'Raleway', sans-serif;
-	font-size: 75pt;
-	color: white;
-}
-
-#subText{
-	font-family: 'Open Sans', sans-serif;
-	font-size: 45pt;
-	color: #70C7A9;
-}
-
-.titleDiv{
-	height: 100%;
-	width: 50%;
-    background: linear-gradient(to bottom right, #606B9B, #B191D4);
-}
-
-.login{
-	font-family: Helvetica;
-	font-size: 25pt;
-	color: white;
-}
-
-main {
-	display: flex;
-}
-
-}
