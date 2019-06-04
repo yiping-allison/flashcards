@@ -36,7 +36,6 @@ h2 {
     height: 100%;
 }
 
-<<<<<<< HEAD
 /*- Card container -*/
 .card-container {
   position: relative;
@@ -48,8 +47,6 @@ h2 {
           perspective: 1000px;
 }
 
-=======
->>>>>>> origin/master
 /*- Card body -*/
 .card-body {
   width: 100%;
@@ -238,7 +235,6 @@ textarea::placeholder {
 
 }
 
-}
 
 /* Start tablet division */
 @media screen and (min-width: 800px)  {

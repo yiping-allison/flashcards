@@ -161,23 +161,18 @@ class CreateReviewMain extends React.Component {
 
 	checkReturn() {
 		if (event.charCode == 13) {
-			// TODO: Finish user guess checking
 			let userAns = document.getElementById('userInput').value.trim();
 			if (userAns === this.state.eng) {
 				// user is correct! update state
-				console.log('user correct');
-				console.log("user ans: ", userAns);
-				console.log("state: ", this.state.eng);
 				let url = "updateCorrect?cor="+userAns;
 				fetch(url);
 				// TODO: Update card
+				document.querySelector(".card-body").classList.toggle("flip");
 				//<Card word={this.state.kor} ans={"Correct!"} />
 			} else {
-				console.log('user wrong');
-				console.log("user ans: ", userAns);
-				console.log("state: ", this.state.eng);
 				// TODO: Update card
 				//<Card word={this.state.kor} ans={this.state.eng} />
+				document.querySelector(".card-body").classList.toggle("flip");
 			}
 		}
 	}  // END : Return key check
