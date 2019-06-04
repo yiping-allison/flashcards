@@ -209,7 +209,7 @@ var CreateReviewMain = function (_React$Component4) {
 						" Add "
 					)
 				),
-				React.createElement(Card, { word: this.state.kor, ans: this.state.eng }),
+				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, onClick: this.checkReturn }),
 				React.createElement(
 					"div",
 					{ id: "inputArea" },
@@ -260,6 +260,10 @@ var CreateReviewMain = function (_React$Component4) {
 				// user answered before - reset states
 				document.querySelector(".card-body").classList.toggle("flip");
 				this.state.userAnswered = false;
+				if (document.querySelector(".card-side-container").classList.contains("correct")) {
+					// remove
+					document.querySelector(".card-side-container").classList.remove("correct");
+				}
 			}
 			fetch(url).then(function (res) {
 				return res.json();
@@ -282,12 +286,13 @@ var CreateReviewMain = function (_React$Component4) {
 				var userAns = document.getElementById('userInput').value.trim();
 				if (userAns === this.state.eng) {
 					// user is correct! update state
+					document.querySelector(".card-side-container").classList.add("correct");
+					this.setState({ eng: "Correct!" });
 					if (!this.state.userAnswered) {
 						var url = "updateCorrect?cor=" + userAns;
 						fetch(url);
 						document.querySelector(".card-body").classList.toggle("flip");
 						this.setState({ userAnswered: true });
-						// TODO: Include Correct! animation
 					}
 				} else {
 					if (!this.state.userAnswered) {

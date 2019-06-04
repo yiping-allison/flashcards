@@ -106,7 +106,7 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<Card word={this.state.kor} ans={this.state.eng} />
+			<Card word={this.state.kor} ans={this.state.eng} onClick={this.checkReturn} />
 			<div id="inputArea">
 				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
 			</div>
@@ -144,6 +144,10 @@ class CreateReviewMain extends React.Component {
 			// user answered before - reset states
 			document.querySelector(".card-body").classList.toggle("flip");
 			this.state.userAnswered = false;
+			if (document.querySelector(".card-side-container").classList.contains("correct")) {
+				// remove
+				document.querySelector(".card-side-container").classList.remove("correct");
+			}	
 		}
 		fetch(url)
 			.then(res => res.json())
@@ -167,12 +171,13 @@ class CreateReviewMain extends React.Component {
 			let userAns = document.getElementById('userInput').value.trim();
 			if (userAns === this.state.eng) {
 				// user is correct! update state
+				document.querySelector(".card-side-container").classList.add("correct");
+				this.setState({ eng: "Correct!" });
 				if (!this.state.userAnswered) {
 					let url = "updateCorrect?cor="+userAns;
 					fetch(url);
 					document.querySelector(".card-body").classList.toggle("flip");
 					this.setState({ userAnswered: true });
-					// TODO: Include Correct! animation
 				}
 			} else {
 				if (!this.state.userAnswered) {
