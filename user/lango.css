@@ -19,9 +19,10 @@
 	order: 2;
 }
 
-button#startReview {
+#startReview {
+	text-decoration: none;
 	order: 1;
-	font-size: .5em;
+	font-size: .3em;
 	border-radius: 25px;
 	font-family: Helvetica;
 	color: white;
@@ -46,7 +47,7 @@ button#startReview {
 
 #saveBttn {
 	font-family: Helvetica;
-	font-size: 2em;
+	font-size: 1.5em;
 	align-items: right;
 	color: white;
 	background-color: #70C7A9;
@@ -71,7 +72,7 @@ textarea::placeholder {
 	text-align: center;
 	padding-right: 40px; 
 	padding-left: 40px; 
-	padding-top: 40px;
+	padding-top: 15px;
 	padding-bottom: 40px;
 }
 
