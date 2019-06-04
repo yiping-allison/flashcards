@@ -7,8 +7,6 @@
 	Modified by Nina Amenta for ECS 162, May 2019
 */
 
-//const cardContainer = document.querySelector('.react-card');
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -139,8 +137,6 @@ var Card = function (_React$Component3) {
 
 	_createClass(Card, [{
 		key: "render",
-
-		// TODO: Fix input checking on CardBack
 		value: function render() {
 			return React.createElement(
 				"div",
@@ -170,7 +166,8 @@ var CreateReviewMain = function (_React$Component4) {
 			error: null,
 			user: "",
 			kor: "",
-			eng: ""
+			eng: "",
+			userAnswered: false
 		};
 		_this4.getUser = _this4.getUser.bind(_this4);
 		_this4.getWord = _this4.getWord.bind(_this4);
@@ -259,6 +256,11 @@ var CreateReviewMain = function (_React$Component4) {
 			var _this6 = this;
 
 			var url = "randomword?word=newWord";
+			if (this.state.userAnswered) {
+				// user answered before - reset states
+				document.querySelector(".card-body").classList.toggle("flip");
+				this.state.userAnswered = false;
+			}
 			fetch(url).then(function (res) {
 				return res.json();
 			}).then(function (result) {
@@ -280,15 +282,18 @@ var CreateReviewMain = function (_React$Component4) {
 				var userAns = document.getElementById('userInput').value.trim();
 				if (userAns === this.state.eng) {
 					// user is correct! update state
-					var url = "updateCorrect?cor=" + userAns;
-					fetch(url);
-					// TODO: Update card
-					document.querySelector(".card-body").classList.toggle("flip");
-					//<Card word={this.state.kor} ans={"Correct!"} />
+					if (!this.state.userAnswered) {
+						var url = "updateCorrect?cor=" + userAns;
+						fetch(url);
+						document.querySelector(".card-body").classList.toggle("flip");
+						this.setState({ userAnswered: true });
+						// TODO: Include Correct! animation
+					}
 				} else {
-					// TODO: Update card
-					//<Card word={this.state.kor} ans={this.state.eng} />
-					document.querySelector(".card-body").classList.toggle("flip");
+					if (!this.state.userAnswered) {
+						this.setState({ userAnswered: true });
+						document.querySelector(".card-body").classList.toggle("flip");
+					}
 				}
 			}
 		} // END : Return key check

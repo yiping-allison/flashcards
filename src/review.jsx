@@ -7,8 +7,6 @@
 	Modified by Nina Amenta for ECS 162, May 2019
 */
 
-//const cardContainer = document.querySelector('.react-card');
-
 function Header(props) {
 	return <div className = "header">
 		{ props.children }
@@ -66,7 +64,6 @@ class CardBack extends React.Component {
 }  // React Component for back side of the card
 
 class Card extends React.Component {
-	// TODO: Fix input checking on CardBack
 	render() {
 		return(
 			<div className='card-container'>
@@ -87,7 +84,8 @@ class CreateReviewMain extends React.Component {
 			error: null,
 			user: "",
 			kor: "",
-			eng: ""
+			eng: "",
+			userAnswered: false
 		}
 		this.getUser = this.getUser.bind(this);
 		this.getWord = this.getWord.bind(this);
@@ -142,6 +140,11 @@ class CreateReviewMain extends React.Component {
 	
 	getWord() {
 		let url = "randomword?word=newWord";
+		if (this.state.userAnswered) {
+			// user answered before - reset states
+			document.querySelector(".card-body").classList.toggle("flip");
+			this.state.userAnswered = false;
+		}
 		fetch(url)
 			.then(res => res.json())
 			.then(
@@ -156,7 +159,7 @@ class CreateReviewMain extends React.Component {
 						error
 					});
 				}
-			)
+			)				
 	}  // END : gets a word from user's database
 
 	checkReturn() {
@@ -164,15 +167,18 @@ class CreateReviewMain extends React.Component {
 			let userAns = document.getElementById('userInput').value.trim();
 			if (userAns === this.state.eng) {
 				// user is correct! update state
-				let url = "updateCorrect?cor="+userAns;
-				fetch(url);
-				// TODO: Update card
-				document.querySelector(".card-body").classList.toggle("flip");
-				//<Card word={this.state.kor} ans={"Correct!"} />
+				if (!this.state.userAnswered) {
+					let url = "updateCorrect?cor="+userAns;
+					fetch(url);
+					document.querySelector(".card-body").classList.toggle("flip");
+					this.setState({ userAnswered: true });
+					// TODO: Include Correct! animation
+				}
 			} else {
-				// TODO: Update card
-				//<Card word={this.state.kor} ans={this.state.eng} />
-				document.querySelector(".card-body").classList.toggle("flip");
+				if (!this.state.userAnswered) {
+					this.setState({ userAnswered: true });
+					document.querySelector(".card-body").classList.toggle("flip");
+				}
 			}
 		}
 	}  // END : Return key check
