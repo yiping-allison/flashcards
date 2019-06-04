@@ -271,23 +271,29 @@ var CreateReviewMain = function (_React$Component4) {
 					error: error
 				});
 			});
-		} // gets a word from user's database
+		} // END : gets a word from user's database
 
 	}, {
 		key: "checkReturn",
 		value: function checkReturn() {
 			if (event.charCode == 13) {
 				// TODO: Finish user guess checking
-				var userAns = document.getElementById('userInput').value;
-				if (userAns == this.state.eng) {
+				var userAns = document.getElementById('userInput').value.trim();
+				if (userAns === this.state.eng) {
 					// user is correct! update state
 					console.log('user correct');
+					console.log("user ans: ", userAns);
+					console.log("state: ", this.state.eng);
 					var url = "updateCorrect?cor=" + userAns;
 					fetch(url);
-					React.createElement(Card, { word: this.state.kor, ans: "Correct!" });
+					// TODO: Update card
+					//<Card word={this.state.kor} ans={"Correct!"} />
 				} else {
 					console.log('user wrong');
-					React.createElement(Card, { word: this.state.kor, ans: this.state.eng });
+					console.log("user ans: ", userAns);
+					console.log("state: ", this.state.eng);
+					// TODO: Update card
+					//<Card word={this.state.kor} ans={this.state.eng} />
 				}
 			}
 		} // END : Return key check
