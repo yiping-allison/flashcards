@@ -36,6 +36,7 @@ h2 {
     height: 100%;
 }
 
+<<<<<<< HEAD
 /*- Card container -*/
 .card-container {
   position: relative;
@@ -47,6 +48,8 @@ h2 {
           perspective: 1000px;
 }
 
+=======
+>>>>>>> origin/master
 /*- Card body -*/
 .card-body {
   width: 100%;
@@ -125,5 +128,329 @@ textarea {
 .btn-primary:focus, .btn-primary:hover {
   background-color: #56a7f9;
   box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), 0 8px 15px rgba(0, 0, 0, 0.07);
+}
+
+/* Styling for the answer page */
+
+/*Mobile View*/
+@media screen and (min-width: 0px)  {
+
+.header{
+  text-align: center;
+  justify-content: center;
+  font-family: Raleway Black;
+  font-size: 3em;
+  color: #606B9B;
+  padding-top: 7%;
+  padding-bottom: 5%;
+  display: flex;
+  margin-right: 10%;
+  margin-left: 30%;
+}
+
+.footer{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  background-color: #606B9B;
+  font-family: Helvetica;
+  position:absolute;
+  bottom:0;
+  width:100%;
+
+}
+
+/*- Card container -*/
+.card-container {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  max-width: 420px;
+  height: 300px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+
+}
+
+#addCard {
+  text-decoration: none;
+  order: 1;
+  font-size: .4em;
+  border-radius: 25px;
+  font-family: Helvetica;
+  color: white;
+  background-color: #606B9B;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  padding: 20px;
+  padding-left: 30px;
+  padding-right:30px;
+}
+
+#nextBttn {
+  font-family: Helvetica;
+  font-size: 1.5em;
+  align-items: right;
+  color: white;
+  background-color: #70C7A9;
+  border-radius: 25px;
+  padding-right: 40px; 
+  padding-left: 40px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  bottom: 100px;
+  right: 40px;
+}
+
+textarea {
+  padding-right: 1%; 
+  padding-left: 1%; 
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+textarea::placeholder {
+  text-align: center;
+  padding-right: 40px; 
+  padding-left: 40px; 
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#userInput {
+  font-family: Helvetica;
+  display: flex;
+  font-size: 0.9em;
+  float: right;
+}
+
+#inputArea {
+  font-family: Helvetica;
+  font-size: 0.9em;
+  display: flex;
+  padding-bottom: 10%;
+  padding-right: 8%;
+  padding-left: 8%;
+  float: center;
+}
+
+}
+
+}
+
+/* Start tablet division */
+@media screen and (min-width: 800px)  {
+
+.header{
+  text-align: center;
+  justify-content: center;
+  font-family: Raleway Black;
+  font-size: 5em;
+  color: #606B9B;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  margin-right: 10%;
+  margin-left: 30%;
+}
+
+.footer{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  background-color: #606B9B;
+  font-family: Helvetica;
+  position:absolute;
+  bottom:0;
+  width:100%;
+
+}
+
+/*- Card container -*/
+.card-container {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  max-width: 420px;
+  height: 300px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+
+}
+
+#addCard {
+  text-decoration: none;
+  order: 1;
+  font-size: .3em;
+  border-radius: 25px;
+  font-family: Helvetica;
+  color: white;
+  background-color: #606B9B;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right:40px;
+}
+
+#nextBttn {
+  font-family: Helvetica;
+  font-size: 1.5em;
+  align-items: right;
+  color: white;
+  background-color: #70C7A9;
+  border-radius: 25px;
+  padding-right: 40px; 
+  padding-left: 40px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  margin-right: 22%;
+  bottom: 100px;
+  right: 40px;
+}
+
+textarea {
+  padding-right: 1%; 
+  padding-left: 1%; 
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+textarea::placeholder {
+  text-align: center;
+  padding-right: 40px; 
+  padding-left: 40px; 
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#userInput {
+  font-family: Helvetica;
+  display: flex;
+  font-size: 2em;
+  float: right;
+}
+
+#inputArea {
+  font-family: Helvetica;
+  font-size: 1em;
+  display: flex;
+  padding-bottom: 10%;
+  padding-right: 45%;
+  padding-left: 45%;
+  float: center;
+}
+
+}
+
+/* COMPUTER STYLING*/
+@media screen and (min-width: 1100px) {
+
+.header{
+  text-align: center;
+  justify-content: center;
+  font-family: Raleway Black;
+  font-size: 5em;
+  color: #606B9B;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  margin-right: 30%;
+  margin-left: 30%;
+}
+
+.footer{
+  text-align: center;
+  font-size: 2em;
+  color: white;
+  background-color: #606B9B;
+  font-family: Helvetica;
+  position:absolute;
+  bottom:0;
+  width:100%;
+
+}
+
+/*- Card container -*/
+.card-container {
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  max-width: 620px;
+  height: 220px;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+
+}
+
+#addCard {
+  text-decoration: none;
+  order: 1;
+  font-size: .3em;
+  border-radius: 25px;
+  font-family: Helvetica;
+  color: white;
+  background-color: #606B9B;
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right:40px;
+}
+
+#nextBttn {
+  font-family: Helvetica;
+  font-size: 1.5em;
+  align-items: right;
+  color: white;
+  background-color: #70C7A9;
+  border-radius: 25px;
+  padding-right: 40px; 
+  padding-left: 40px; 
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: absolute;
+  margin-right: 22%;
+  bottom: 100px;
+  right: 40px;
+}
+
+textarea {
+  padding-right: 1%; 
+  padding-left: 1%; 
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+textarea::placeholder {
+  text-align: center;
+  padding-right: 40px; 
+  padding-left: 40px; 
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+#userInput {
+  font-family: Helvetica;
+  display: flex;
+  font-size: 2em;
+  float: right;
+}
+
+#inputArea {
+  font-family: Helvetica;
+  font-size: 0.9em;
+  display: flex;
+  padding-bottom: 10%;
+  padding-right: 25%;
+  padding-left: 25%;
+  float: center;
+}
+
 }
 
