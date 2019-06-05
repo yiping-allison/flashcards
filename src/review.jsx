@@ -44,6 +44,9 @@ class CardFront extends React.Component {
 		return(
 			<div className='card-side side-front'>
 				<div className='card-side-container'>
+					<div>
+						{this.props.bttn}
+					</div>
 					<h2 id='trans'>{this.props.text}</h2>
 				</div>
 			</div>
@@ -56,6 +59,9 @@ class CardBack extends React.Component {
 		return(
 			<div className='card-side side-back'>
 				<div className='card-side-container'>
+					<div>
+						{this.props.bttn}
+					</div>
 					<h2 id='congrats'>{this.props.text}</h2>
 				</div>
 			</div>
@@ -68,9 +74,9 @@ class Card extends React.Component {
 		return(
 			<div className='card-container'>
 				<div className='card-body'>
-					<CardBack text={ this.props.ans } />
+					<CardBack text={ this.props.ans } bttn={this.props.flipBttn} />
 
-					<CardFront text={this.props.word} />
+					<CardFront text={this.props.word} bttn={this.props.flipBttn} />
 				</div>
 			</div>
 		)
@@ -106,7 +112,7 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<Card word={this.state.kor} ans={this.state.eng} onClick={this.checkReturn} />
+			<Card word={this.state.kor} ans={this.state.eng} flipBttn={<button onClick={this.checkReturn} />} />
 			<div id="inputArea">
 				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
 			</div>

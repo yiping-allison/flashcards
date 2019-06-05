@@ -83,6 +83,11 @@ var CardFront = function (_React$Component) {
 					"div",
 					{ className: "card-side-container" },
 					React.createElement(
+						"div",
+						null,
+						this.props.bttn
+					),
+					React.createElement(
 						"h2",
 						{ id: "trans" },
 						this.props.text
@@ -114,6 +119,11 @@ var CardBack = function (_React$Component2) {
 					"div",
 					{ className: "card-side-container" },
 					React.createElement(
+						"div",
+						null,
+						this.props.bttn
+					),
+					React.createElement(
 						"h2",
 						{ id: "congrats" },
 						this.props.text
@@ -144,8 +154,8 @@ var Card = function (_React$Component3) {
 				React.createElement(
 					"div",
 					{ className: "card-body" },
-					React.createElement(CardBack, { text: this.props.ans }),
-					React.createElement(CardFront, { text: this.props.word })
+					React.createElement(CardBack, { text: this.props.ans, bttn: this.props.flipBttn }),
+					React.createElement(CardFront, { text: this.props.word, bttn: this.props.flipBttn })
 				)
 			);
 		}
@@ -209,7 +219,7 @@ var CreateReviewMain = function (_React$Component4) {
 						" Add "
 					)
 				),
-				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, onClick: this.checkReturn }),
+				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, flipBttn: React.createElement("button", { onClick: this.checkReturn }) }),
 				React.createElement(
 					"div",
 					{ id: "inputArea" },
