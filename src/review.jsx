@@ -96,6 +96,7 @@ class CreateReviewMain extends React.Component {
 		this.getUser = this.getUser.bind(this);
 		this.getWord = this.getWord.bind(this);
 		this.checkReturn = this.checkReturn.bind(this);
+		this.flipClick = this.flipClick.bind(this);
 		this.getUser();
 		this.getWord();
 	}
@@ -112,7 +113,7 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<Card word={this.state.kor} ans={this.state.eng} flipBttn={<button onClick={this.checkReturn} />} />
+			<Card word={this.state.kor} ans={this.state.eng} flipBttn={<button id="flipButton" onClick={this.flipClick} />} />
 			<div id="inputArea">
 				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
 			</div>
@@ -148,7 +149,9 @@ class CreateReviewMain extends React.Component {
 		let url = "randomword?word=newWord";
 		if (this.state.userAnswered) {
 			// user answered before - reset states
-			document.querySelector(".card-body").classList.toggle("flip");
+			if (document.querySelector(".card-body").classList.contains("flip")) {
+				document.querySelector(".card-body").classList.toggle("flip");
+			}
 			this.state.userAnswered = false;
 			if (document.querySelector(".card-side-container").classList.contains("correct")) {
 				// remove
@@ -191,8 +194,30 @@ class CreateReviewMain extends React.Component {
 					document.querySelector(".card-body").classList.toggle("flip");
 				}
 			}
+			document.querySelector(".card-body").classList.toggle("flip");
 		}
 	}  // END : Return key check
+
+	flipClick() {
+		let userAns = document.getElementById('userInput').value.trim();
+		if (userAns === this.state.eng) {
+			// user is correct! update state
+			document.querySelector(".card-side-container").classList.add("correct");
+			this.setState({ eng: "Correct!" });
+			if (!this.state.userAnswered) {
+				let url = "updateCorrect?cor="+userAns;
+				fetch(url);
+				document.querySelector(".card-body").classList.toggle("flip");
+				this.setState({ userAnswered: true });
+			}
+		} else {
+			if (!this.state.userAnswered) {
+				this.setState({ userAnswered: true });
+				document.querySelector(".card-body").classList.toggle("flip");
+			}
+		}
+		document.querySelector(".card-body").classList.toggle("flip");
+	}  // END : Flip by Click
 }
 
 ReactDOM.render(

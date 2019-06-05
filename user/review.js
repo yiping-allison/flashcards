@@ -182,6 +182,7 @@ var CreateReviewMain = function (_React$Component4) {
 		_this4.getUser = _this4.getUser.bind(_this4);
 		_this4.getWord = _this4.getWord.bind(_this4);
 		_this4.checkReturn = _this4.checkReturn.bind(_this4);
+		_this4.flipClick = _this4.flipClick.bind(_this4);
 		_this4.getUser();
 		_this4.getWord();
 		return _this4;
@@ -219,7 +220,7 @@ var CreateReviewMain = function (_React$Component4) {
 						" Add "
 					)
 				),
-				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, flipBttn: React.createElement("button", { onClick: this.checkReturn }) }),
+				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, flipBttn: React.createElement("button", { id: "flipButton", onClick: this.flipClick }) }),
 				React.createElement(
 					"div",
 					{ id: "inputArea" },
@@ -268,7 +269,9 @@ var CreateReviewMain = function (_React$Component4) {
 			var url = "randomword?word=newWord";
 			if (this.state.userAnswered) {
 				// user answered before - reset states
-				document.querySelector(".card-body").classList.toggle("flip");
+				if (document.querySelector(".card-body").classList.contains("flip")) {
+					document.querySelector(".card-body").classList.toggle("flip");
+				}
 				this.state.userAnswered = false;
 				if (document.querySelector(".card-side-container").classList.contains("correct")) {
 					// remove
@@ -310,8 +313,32 @@ var CreateReviewMain = function (_React$Component4) {
 						document.querySelector(".card-body").classList.toggle("flip");
 					}
 				}
+				document.querySelector(".card-body").classList.toggle("flip");
 			}
 		} // END : Return key check
+
+	}, {
+		key: "flipClick",
+		value: function flipClick() {
+			var userAns = document.getElementById('userInput').value.trim();
+			if (userAns === this.state.eng) {
+				// user is correct! update state
+				document.querySelector(".card-side-container").classList.add("correct");
+				this.setState({ eng: "Correct!" });
+				if (!this.state.userAnswered) {
+					var url = "updateCorrect?cor=" + userAns;
+					fetch(url);
+					document.querySelector(".card-body").classList.toggle("flip");
+					this.setState({ userAnswered: true });
+				}
+			} else {
+				if (!this.state.userAnswered) {
+					this.setState({ userAnswered: true });
+					document.querySelector(".card-body").classList.toggle("flip");
+				}
+			}
+			document.querySelector(".card-body").classList.toggle("flip");
+		} // END : Flip by Click
 
 	}]);
 
