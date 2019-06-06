@@ -45,6 +45,7 @@ class CardFront extends React.Component {
 			<div className='card-side side-front'>
 				<div className='card-side-container'>
 					<div>
+						<img src="flip.svg" className='flipImg' />
 						{this.props.bttn}
 					</div>
 					<h2 id='trans'>{this.props.text}</h2>
@@ -60,6 +61,7 @@ class CardBack extends React.Component {
 			<div className='card-side side-back'>
 				<div className='card-side-container'>
 					<div>
+						<img src="flip.svg" className='flipImg' />
 						{this.props.bttn}
 					</div>
 					<h2 id='congrats'>{this.props.text}</h2>

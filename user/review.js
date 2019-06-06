@@ -85,6 +85,7 @@ var CardFront = function (_React$Component) {
 					React.createElement(
 						"div",
 						null,
+						React.createElement("img", { src: "flip.svg", className: "flipImg" }),
 						this.props.bttn
 					),
 					React.createElement(
@@ -121,6 +122,7 @@ var CardBack = function (_React$Component2) {
 					React.createElement(
 						"div",
 						null,
+						React.createElement("img", { src: "flip.svg", className: "flipImg" }),
 						this.props.bttn
 					),
 					React.createElement(

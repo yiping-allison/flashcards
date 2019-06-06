@@ -127,6 +127,28 @@ textarea {
   box-shadow: 0 18px 35px rgba(50, 50, 93, 0.1), 0 8px 15px rgba(0, 0, 0, 0.07);
 }
 
+#flipButton{
+  text-align: center;
+  font-family: Raleway Black;
+  font-size: 1em;
+  position: absolute;
+  right: 0.5em;
+  top: 0.5em;
+}
+.correct{
+  margin-top: 8%;
+  margin-bottom: 10%;
+  color: #008000;
+  display: inline-block;
+  width: 200px;
+  height: 50px;
+  border: 3px solid #008000;
+  text-align: center;
+  padding-top: 7%;
+  padding-bottom: 3%;
+  background-color: #00FF00;
+}
+
 /* Styling for the answer page */
 
 /*Mobile View*/
@@ -143,6 +165,7 @@ textarea {
   display: flex;
   margin-right: 10%;
   margin-left: 30%;
+  font-weight: bold;
 }
 
 .footer{
@@ -183,6 +206,7 @@ textarea {
   padding: 20px;
   padding-left: 30px;
   padding-right:30px;
+  font-weight: lighter;
 }
 
 #nextBttn {
@@ -219,8 +243,9 @@ textarea::placeholder {
 #userInput {
   font-family: Helvetica;
   display: flex;
-  font-size: 0.9em;
+  font-size: 1.2em;
   float: right;
+  min-width: 200px;
 }
 
 #inputArea {
@@ -250,6 +275,7 @@ textarea::placeholder {
   display: flex;
   margin-right: 10%;
   margin-left: 30%;
+  font-weight: bold;
 }
 
 .footer{
@@ -327,8 +353,9 @@ textarea::placeholder {
 #userInput {
   font-family: Helvetica;
   display: flex;
-  font-size: 2em;
+  font-size: 1.5em;
   float: right;
+  min-width: 400px;
 }
 
 #inputArea {
@@ -336,8 +363,8 @@ textarea::placeholder {
   font-size: 1em;
   display: flex;
   padding-bottom: 10%;
-  padding-right: 45%;
-  padding-left: 45%;
+  padding-right: 25%;
+  padding-left: 25%;
   float: center;
 }
 
@@ -357,6 +384,7 @@ textarea::placeholder {
   display: flex;
   margin-right: 30%;
   margin-left: 30%;
+  font-weight: bold;
 }
 
 .footer{
@@ -436,6 +464,7 @@ textarea::placeholder {
   display: flex;
   font-size: 2em;
   float: right;
+  min-width: 300px;
 }
 
 #inputArea {

@@ -69,7 +69,7 @@ main {
 }
 
 /* Start tablet division */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 800px) {
 
 #mainTitle {
 	font-family: 'Raleway', sans-serif;
@@ -182,6 +182,7 @@ main {
     background-color: #70C7A9;
     padding-left: 14%;
     padding-right: 5%;
+    max-width: 240px;
 }
 
 .titleDiv{
@@ -190,7 +191,7 @@ main {
     left: 0;
     width: 50%;
     height: 100%;
-    /*background: linear-gradient(to bottom right, #606B9B, #B191D4);*/
+    background: linear-gradient(to bottom right, #606B9B, #B191D4);
     box-shadow: 0px 8px 70px rgba(0, 0, 0, 0.9);
 
 }
