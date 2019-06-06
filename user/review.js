@@ -220,7 +220,11 @@ var CreateReviewMain = function (_React$Component4) {
 						" Add "
 					)
 				),
-				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, flipBttn: React.createElement("button", { id: "flipButton", onClick: this.flipClick }) }),
+				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, flipBttn: React.createElement(
+						"button",
+						{ id: "flipButton", onClick: this.flipClick },
+						"Flip Button Here"
+					) }),
 				React.createElement(
 					"div",
 					{ id: "inputArea" },
@@ -295,7 +299,7 @@ var CreateReviewMain = function (_React$Component4) {
 	}, {
 		key: "checkReturn",
 		value: function checkReturn() {
-			if (event.charCode == 13) {
+			if (event.charCode == 13 && !this.state.userAnswered) {
 				var userAns = document.getElementById('userInput').value.trim();
 				if (userAns === this.state.eng) {
 					// user is correct! update state
@@ -308,11 +312,10 @@ var CreateReviewMain = function (_React$Component4) {
 						this.setState({ userAnswered: true });
 					}
 				} else {
-					if (!this.state.userAnswered) {
-						this.setState({ userAnswered: true });
-						document.querySelector(".card-body").classList.toggle("flip");
-					}
+					this.setState({ userAnswered: true });
+					document.querySelector(".card-body").classList.toggle("flip");
 				}
+			} else if (event.charCode == 13 && this.state.userAnswered) {
 				document.querySelector(".card-body").classList.toggle("flip");
 			}
 		} // END : Return key check
@@ -321,23 +324,20 @@ var CreateReviewMain = function (_React$Component4) {
 		key: "flipClick",
 		value: function flipClick() {
 			var userAns = document.getElementById('userInput').value.trim();
-			if (userAns === this.state.eng) {
+			if (userAns === this.state.eng && !this.state.userAnswered) {
 				// user is correct! update state
 				document.querySelector(".card-side-container").classList.add("correct");
 				this.setState({ eng: "Correct!" });
-				if (!this.state.userAnswered) {
-					var url = "updateCorrect?cor=" + userAns;
-					fetch(url);
-					document.querySelector(".card-body").classList.toggle("flip");
-					this.setState({ userAnswered: true });
-				}
+				var url = "updateCorrect?cor=" + userAns;
+				fetch(url);
+				document.querySelector(".card-body").classList.toggle("flip");
+				this.setState({ userAnswered: true });
+			} else if (!this.state.userAnswered && userAns !== this.state.eng) {
+				this.setState({ userAnswered: true });
+				document.querySelector(".card-body").classList.toggle("flip");
 			} else {
-				if (!this.state.userAnswered) {
-					this.setState({ userAnswered: true });
-					document.querySelector(".card-body").classList.toggle("flip");
-				}
+				document.querySelector(".card-body").classList.toggle("flip");
 			}
-			document.querySelector(".card-body").classList.toggle("flip");
 		} // END : Flip by Click
 
 	}]);
