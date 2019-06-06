@@ -1,4 +1,5 @@
 langoServer.js
 node_modules/
 Flashcards.db
-*.json
+package-lock.json
+package.json
