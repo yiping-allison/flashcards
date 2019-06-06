@@ -45,7 +45,6 @@ class CardFront extends React.Component {
 			<div className='card-side side-front'>
 				<div className='card-side-container'>
 					<div>
-						<img src="flip.svg" className='flipImg' />
 						{this.props.bttn}
 					</div>
 					<h2 id='trans'>{this.props.text}</h2>
@@ -61,7 +60,6 @@ class CardBack extends React.Component {
 			<div className='card-side side-back'>
 				<div className='card-side-container'>
 					<div>
-						<img src="flip.svg" className='flipImg' />
 						{this.props.bttn}
 					</div>
 					<h2 id='congrats'>{this.props.text}</h2>
@@ -115,7 +113,7 @@ class CreateReviewMain extends React.Component {
 				<p id="title"> Lango! </p>
 				<a href="lango.html" id="addCard"> Add </a>
 			</Header>
-			<Card word={this.state.kor} ans={this.state.eng} flipBttn={<button id="flipButton" onClick={this.flipClick}>Flip Button Here</button>} />
+			<Card word={this.state.kor} ans={this.state.eng} flipBttn={<button id="flipButton" onClick={this.flipClick}>⟳</button>} />
 			<div id="inputArea">
 				<textarea id="userInput" placeholder="Enter your translation here!" onKeyPress={this.checkReturn} />
 			</div>

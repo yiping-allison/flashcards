@@ -85,7 +85,6 @@ var CardFront = function (_React$Component) {
 					React.createElement(
 						"div",
 						null,
-						React.createElement("img", { src: "flip.svg", className: "flipImg" }),
 						this.props.bttn
 					),
 					React.createElement(
@@ -122,7 +121,6 @@ var CardBack = function (_React$Component2) {
 					React.createElement(
 						"div",
 						null,
-						React.createElement("img", { src: "flip.svg", className: "flipImg" }),
 						this.props.bttn
 					),
 					React.createElement(
@@ -225,7 +223,7 @@ var CreateReviewMain = function (_React$Component4) {
 				React.createElement(Card, { word: this.state.kor, ans: this.state.eng, flipBttn: React.createElement(
 						"button",
 						{ id: "flipButton", onClick: this.flipClick },
-						"Flip Button Here"
+						"\u27F3"
 					) }),
 				React.createElement(
 					"div",
