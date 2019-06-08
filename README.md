@@ -25,9 +25,24 @@ Lango uses the following node packages:
 Lango uses Google Cloud API to provide authentication and translation. The app requires an API key to run, which can be found here: [Google Cloud](https://cloud.google.com/ "Google Cloud Link")
 
 ### Launching the Server ###
-From the main Flashcards directory, find langoServer.js and use the following command: \
-`node langoServer.js`
-> Note: Replace the API key constant located in langoServer.js before launching the App 
+From your main Flashcards directory, find server.js and use the following command: \
+`node server.js`
+> Note: Replace the API key constant located in server.js before launching the App
+
+### Accessing the Website ###
+The main landing page is located in the `public` directory. \
+An example url to access the main page: \
+`http://server_siteName:[portNumber]/login.html`
+> `server.js` uses the port number in its code - which needs to be changed (initialized to an empty string)
+
+## Website Demo ##
+
+#### Create Flashcards Page ####
+![Creating Flashcards](flashcards_imgs/Create_Flashcards.PNG)
+#### Review Flashcards Page ####
+![Creating Flashcards](flashcards_imgs/Review_Flashcards.PNG)
+#### Reviewing - Correct Indicator ####
+![Creating Flashcards](flashcards_imgs/Correct.PNG)
 
 ## License ##
 > This project was created as an assignment for ECS 162 at UC Davis (Spring 2019) and is released for showcase purposes.
